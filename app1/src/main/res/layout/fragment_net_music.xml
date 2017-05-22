@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fadingEdge="vertical"
+    android:scrollbars="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.zk.activity.fragment.MyMusic">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/fragment_net_music_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/colorAccent">
+
+        </android.support.v4.view.ViewPager>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/fragment_net_music_geshou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/fragment_net_music_item_margin"
+                android:orientation="horizontal">
+
+                <include layout="@layout/fragment_net_music_item" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fragment_net_music_paihang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <include layout="@layout/fragment_net_music_item" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fragment_net_music_diantai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/fragment_net_music_item_margin"
+                android:orientation="horizontal">
+
+                <include layout="@layout/fragment_net_music_item" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/fragment_net_music_fenlei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/fragment_net_music_item_margin"
+                android:orientation="horizontal">
+
+                <include layout="@layout/fragment_net_music_item" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fragment_net_music_mv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <include layout="@layout/fragment_net_music_item" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fragment_net_music_shuzi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/fragment_net_music_item_margin"
+                android:orientation="horizontal">
+
+                <include layout="@layout/fragment_net_music_item" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="热门推荐" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <include layout="@layout/music_tuijian" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <include layout="@layout/music_tuijian" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="乐人专栏"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <include layout="@layout/music_tuijian2" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <include layout="@layout/music_tuijian2" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</ScrollView>

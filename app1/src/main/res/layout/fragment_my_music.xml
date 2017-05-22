@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical"
+    android:fadingEdge="vertical">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.zk.activity.fragment.MyMusic">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:text="登陆听歌，听歌越多，推的越准" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:text="立即登陆" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/fragment_my_music_itme_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fragment_my_music_itme_margin">
+
+            <include layout="@layout/fragment_my_music_itme" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_my_music_itme_dowload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            >
+
+            <include layout="@layout/fragment_my_music_itme" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_my_music_itme_recent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+
+            android:layout_marginRight="@dimen/fragment_my_music_itme_margin">
+
+            <include layout="@layout/fragment_my_music_itme" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/fragment_my_music_itme_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fragment_my_music_itme_margin">
+
+            <include layout="@layout/fragment_my_music_itme" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_my_music_itme_mv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <include layout="@layout/fragment_my_music_itme" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_my_music_itme_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/fragment_my_music_itme_margin">
+
+            <include layout="@layout/fragment_my_music_itme" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/colorAccent">
+
+    </View>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="15dp"
+        android:text="为您推荐" />
+
+   <include layout="@layout/music_tuijian"/>
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context="com.example.zk.activity.fragment.MyMusic">
+
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/fragment_my_music_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_camera" />
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/fragment_my_music_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本地歌曲" />
+
+    <TextView
+        android:id="@+id/fragment_my_music_item_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="10" />
+
+
+</LinearLayout>
