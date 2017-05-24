@@ -1,7 +1,7 @@
 package com.example.zk.activity.fragment;
 
 
-import android.content.Context;
+import android.app.Activity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -9,18 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.zk.activity.R;
+
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageChangeListener {
-    String TAG="woddelog";
+    String TAG = "woddelog";
     //    当前页面
     private int currentPosition = 0;
 
-    protected Context mContext;
+    protected Activity mContext;
     protected ArrayList<View> views;
     protected ViewPager mViewPager;
 
-    public NetMusicViewPagerAdapter(Context context, ArrayList<Integer> datas, ViewPager viewPager) {
+    public NetMusicViewPagerAdapter(View view, Activity context, ArrayList<Integer> datas, final ViewPager viewPager) {
         mContext = context;
         views = new ArrayList<>();
 
@@ -35,6 +39,29 @@ class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageC
         viewPager.setAdapter(this);
         viewPager.addOnPageChangeListener(this);
         viewPager.setCurrentItem(1, false);
+        initPoint(view);
+
+        final Timer timer = new Timer();
+
+
+        final TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+
+                mContext.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    }
+                });
+
+                Log.e(TAG, "run: ");
+            }
+        };
+
+
+        timer.schedule(task, 0, 5000);
+
     }
 
     @Override
@@ -53,13 +80,12 @@ class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageC
         container.addView(view);
 
 
-
         view.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Log.e(TAG, "xl:arrive here."+position);
+                Log.e(TAG, "xl:arrive here." + position);
             }
         });
 
@@ -71,7 +97,7 @@ class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageC
         container.removeView(views.get(position));
     }
 
-    protected  View getItemView(int data){
+    protected View getItemView(int data) {
         ImageView imageView = new ImageView(mContext);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setImageResource(data);
@@ -89,15 +115,71 @@ class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageC
 
     @Override
     public void onPageScrollStateChanged(int state) {
-//        若viewpager滑动未停止，直接返回
-        if (state != ViewPager.SCROLL_STATE_IDLE) return;
-//        若当前为第一张，设置页面为倒数第二张
-        if (currentPosition == 0) {
-            mViewPager.setCurrentItem(views.size() - 2, false);
-        } else if (currentPosition == views.size() - 1) {
-//        若当前为倒数第一张，设置页面为第二张
+
+
+
+        int newPosition = currentPosition;
+
+
+        if (state != ViewPager.SCROLL_STATE_IDLE)
+            return;//若viewpager滑动未停止，直接返回
+
+        if (currentPosition == 0) {// 若当前为第一张，设置页面为倒数第二张
+            int i = views.size() - 2;
+            mViewPager.setCurrentItem(i, false);
+
+            newPosition=i;
+
+        } else if (currentPosition == views.size() - 1) {// 若当前为倒数第一张，设置页面为第二张
+
             mViewPager.setCurrentItem(1, false);
+            newPosition=1;
         }
+
+
+
+        newPosition-=1;
+        //循环设置当前页的标记图
+        int length = views.size() - 2;
+        for (int i = 0; i < length; i++) {
+            ivPointArray[newPosition].setBackgroundResource(R.drawable.ic_menu_camera);
+            if (newPosition != i) {
+                ivPointArray[i].setBackgroundResource(R.drawable.ic_menu_gallery);
+            }
+        }
+    }
+
+
+    //实例化原点View
+    private ImageView iv_point;
+    private ImageView[] ivPointArray;
+
+    /**
+     * 加载底部圆点
+     */
+    private void initPoint(View view) {
+        ViewGroup vg = (ViewGroup) view.findViewById(R.id.guide_ll_point);//放置圆点
+        int size = views.size() - 2;
+        //根据ViewPager的item数量实例化数组
+        ivPointArray = new ImageView[size];
+        //循环新建底部圆点ImageView，将生成的ImageView保存到数组中
+
+        for (int i = 0; i < size; i++) {
+            iv_point = new ImageView(mContext);
+            iv_point.setLayoutParams(new ViewGroup.LayoutParams(20, 20));
+            iv_point.setPadding(30, 0, 30, 0);//left,top,right,bottom
+            ivPointArray[i] = iv_point;
+            //第一个页面需要设置为选中状态，这里采用两张不同的图片
+            if (i == 0) {
+                iv_point.setBackgroundResource(R.drawable.ic_menu_camera);
+            } else {
+                iv_point.setBackgroundResource(R.drawable.ic_menu_gallery);
+            }
+            //将数组中的ImageView加入到ViewGroup
+            vg.addView(ivPointArray[i]);
+        }
+
+
     }
 
 

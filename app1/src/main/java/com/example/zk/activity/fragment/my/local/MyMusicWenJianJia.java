@@ -80,7 +80,7 @@ public class MyMusicWenJianJia extends Fragment {
         for (int j = 0; j < fileName.length; j++) {
             File file = new File(fileName[j]);
             File[] list = file.listFiles();
-            if (list != null) {
+            if (list != null&&list.length>0) {
                 List<Map<String, Object>> maplist = new ArrayList<>();
 
                 for (int i = 0; i < list.length; i++) {
