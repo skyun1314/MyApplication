@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
 
-            <include layout="@layout/music_tuijian" />
+            <include layout="@layout/music_tuijian3" />
         </LinearLayout>
 
 
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
 
-            <include layout="@layout/music_tuijian" />
+            <include layout="@layout/music_tuijian3" />
         </LinearLayout>
 
 

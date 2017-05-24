@@ -10,8 +10,6 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -22,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.zk.activity.adapter.TabLayoutViewPagerAdapter;
 import com.example.zk.activity.fragment.FindMusic;
 import com.example.zk.activity.fragment.MyMusic;
 import com.example.zk.activity.fragment.NetMusic;
@@ -54,7 +53,7 @@ public class Main extends AppCompatActivity
 
 
         //ViewPager的适配器
-        MyAdapter adapter = new MyAdapter(getSupportFragmentManager(),list,mTitles);
+        TabLayoutViewPagerAdapter adapter = new TabLayoutViewPagerAdapter(getSupportFragmentManager(),list,mTitles);
         viewPager.setAdapter(adapter);
         //绑定
         tabLayout.setupWithViewPager(viewPager);
@@ -169,36 +168,7 @@ public class Main extends AppCompatActivity
 
 
 
-    public class MyAdapter extends FragmentPagerAdapter {
 
-        private List<Fragment> list_fragment;                         //fragment列表
-        private String[] list_Title;                              //tab名的列表
-
-
-
-        public MyAdapter(FragmentManager fm, List<Fragment> list_fragment, String[] list_Title) {
-            super(fm);
-            this.list_fragment = list_fragment;
-            this.list_Title = list_Title;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return list_fragment.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return list_fragment.size();
-        }
-
-        //此方法用来显示tab上的名字
-        @Override
-        public CharSequence getPageTitle(int position) {
-
-            return list_Title[position];
-        }
-    }
 
 
 

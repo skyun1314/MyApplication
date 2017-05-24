@@ -129,6 +129,6 @@
         android:paddingBottom="15dp"
         android:text="为您推荐" />
 
-   <include layout="@layout/music_tuijian"/>
+   <include layout="@layout/music_tuijian3"/>
 </LinearLayout>
 </ScrollView>

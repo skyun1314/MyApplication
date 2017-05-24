@@ -13,11 +13,11 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:src="@drawable/ic_menu_camera"
-       android:id="@+id/fragment_my_music_local_item_icon"
+       android:id="@+id/fragment_my_music_local_list_item_icon"
        />
 
    <LinearLayout
-       android:layout_toRightOf="@+id/fragment_my_music_local_item_icon"
+       android:layout_toRightOf="@+id/fragment_my_music_local_list_item_icon"
        android:orientation="vertical"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content">
@@ -25,12 +25,12 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:id="@+id/fragment_my_music_local_item_name"
+          android:id="@+id/fragment_my_music_local_list_item_name"
           android:text="不得不爱"/>
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:id="@+id/fragment_my_music_local_item_author"
+          android:id="@+id/fragment_my_music_local_list_item_author"
           android:text="潘玮柏"/>
 
    </LinearLayout>

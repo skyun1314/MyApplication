@@ -7,11 +7,51 @@
     android:orientation="vertical"
    >
 
-   <ListView
-       android:id="@+id/fragment_my_music_local_listview"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
 
-   </ListView>
+   <RelativeLayout
+       android:background="@color/colorPrimary"
+       android:padding="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/ic_menu_camera"
+          />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="本地歌曲"
+          android:layout_centerInParent="true"
+          />
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/ic_menu_camera"
+          android:layout_alignParentRight="true"
+          />
+
+   </RelativeLayout>
+
+
+   <android.support.design.widget.TabLayout
+       android:id="@+id/fragment_my_music_local_tabLayout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+
+       />
+
+   <android.support.v4.view.ViewPager
+       android:id="@+id/fragment_my_music_local_viewpager"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </android.support.v4.view.ViewPager>
+
+
+
 
 </LinearLayout>
