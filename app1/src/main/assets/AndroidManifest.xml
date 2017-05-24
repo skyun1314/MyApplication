@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.zk.activity">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Main"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".fragment.my.LocalMusic"
+            android:label="LocalMusic"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".fragment.my.BuyMusic"
+            android:label="BuyMusic"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.my.local.MyMusicDanQu1"
+            android:label="MyMusicDanQu1"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.my.DowloadMusic"
+            android:label="DowloadMusic"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.my.LikeMusic"
+            android:label="LikeMusic"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.my.MVMusic"
+            android:label="MVMusic"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.my.RecentMusic"
+            android:label="RecentMusic"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+
+        <activity
+            android:name=".fragment.net.FengLei"
+            android:label="FengLei"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".fragment.net.DianTai"
+            android:label="DianTai"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.net.Geshou"
+            android:label="Geshou"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.net.MV"
+            android:label="MV"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.net.Paihang"
+            android:label="Paihang"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".fragment.net.ShuZi"
+            android:label="ShuZi"
+            android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>
