@@ -1,7 +1,6 @@
 package com.example.zk.activity.fragment.my.local;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.zk.activity.BaseActivity;
 import com.example.zk.activity.R;
 
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyMusicDanQu1 extends Activity {
+public class MyMusicDanQu1 extends BaseActivity {
 
 
 

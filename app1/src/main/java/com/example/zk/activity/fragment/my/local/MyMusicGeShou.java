@@ -2,7 +2,9 @@ package com.example.zk.activity.fragment.my.local;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.ListView;
 import com.example.zk.activity.Music;
 import com.example.zk.activity.R;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +24,6 @@ import java.util.Map;
  */
 public class MyMusicGeShou extends Fragment {
 
-    public static final String TAG = "wodelog";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,12 +44,23 @@ public class MyMusicGeShou extends Fragment {
 
         @Override
         public void setView(final int position, ViewHolder holder, View convertView) {
-              Map<String,Object> music = (Map<String, Object>) musics.get(position);
+              final Map<String,Object> music = (Map<String, Object>) musics.get(position);
             //holder.img.setImageBitmap();
             holder.title.setText((String)music.get("name"));
             holder.info.setText((int)music.get("numOfSong")+" 首");
 
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    List<Map<String, Object>> id =
+                            Music.getMusicInfo(context,
+                                    MediaStore.Audio.Media.ARTIST_ID, (int) music.get("id") + "");
+                    Intent intent = new Intent(getActivity(), MyMusicDanQu1.class);
+                    intent.putExtra("listMap", (Serializable) id);
+                    startActivity(intent);
 
+                }
+            });
         }
     }
 

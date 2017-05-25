@@ -79,6 +79,7 @@
             android:name=".fragment.net.ShuZi"
             android:label="ShuZi"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".BaseActivity" />
     </application>
 
 </manifest>

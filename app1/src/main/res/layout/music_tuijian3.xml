@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/music_tuijian3_hot1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="1dp"
@@ -12,20 +13,12 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <ImageView
-            android:adjustViewBounds="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/hotmusic" />
+        <include layout="@layout/music_tuijian3_item" />
 
-        <TextView
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="haha" />
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/music_tuijian3_hot2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="1dp"
@@ -33,21 +26,11 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <ImageView
-            android:adjustViewBounds="true"
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/hotmusic" />
+        <include layout="@layout/music_tuijian3_item" />
+    </RelativeLayout>
 
-        <TextView
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="haha" />
-    </LinearLayout>
-
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/music_tuijian3_hot3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="1dp"
@@ -55,17 +38,8 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <ImageView
-            android:adjustViewBounds="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/hotmusic" />
+        <include layout="@layout/music_tuijian3_item" />
 
-        <TextView
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="haha" />
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
 

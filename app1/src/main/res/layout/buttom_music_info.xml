@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:id="@+id/buttom_music_info_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_camera" />
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/buttom_music_info_pic"
+
+        android:orientation="vertical"
+    >
+
+        <TextView
+            android:id="@+id/buttom_music_info_music_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一路上有你" />
+
+        <TextView
+            android:id="@+id/buttom_music_info_music_auther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="张学友" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/buttom_music_info_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_camera" />
+
+        <ImageView
+            android:id="@+id/buttom_music_info_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:src="@drawable/ic_menu_camera" />
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

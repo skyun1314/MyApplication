@@ -22,13 +22,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by zk on 2017/5/21.
  */
 
 public class Music {
 
-    private static String TAG="wodelog";
 
     private String title;
     private String singer;
@@ -318,7 +319,7 @@ public class Music {
             String duration = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION); // 播放时长单位为毫秒
             Log.d(TAG, "duration:" + duration);
             byte[] pic = mmr.getEmbeddedPicture();  // 图片，可以通过BitmapFactory.decodeByteArray转换为bitmap图片
-
+            //Bitmap bitmap = BitmapFactory.decodeByteArray(pic, 0, pic.length);
             map.put("tilte",title);
             map.put("artist",artist);
             map.put("pic",pic);

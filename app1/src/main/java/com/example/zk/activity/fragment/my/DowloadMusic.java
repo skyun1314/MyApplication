@@ -44,9 +44,9 @@ public class DowloadMusic extends AppCompatActivity {
         @Override
         public void setView(final int position, ViewHolder holder, View convertView) {
             Map<String,Object> music = (Map<String, Object>) musics.get(position);
-            //holder.img.setImageBitmap();
+          //  holder.img.setImageBitmap((Bitmap) music.get("pic"));
             holder.title.setText((String)music.get("tilte"));
-            holder.info.setText((int)music.get("artist"));
+            holder.info.setText((String)music.get("artist"));
 
 
             convertView.setOnClickListener(new View.OnClickListener() {

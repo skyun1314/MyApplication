@@ -4,11 +4,11 @@ package com.example.zk.activity.fragment;
 import android.app.Activity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.zk.activity.Data;
 import com.example.zk.activity.R;
 
 import java.util.ArrayList;
@@ -16,7 +16,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageChangeListener {
-    String TAG = "woddelog";
     //    当前页面
     private int currentPosition = 0;
 
@@ -54,8 +53,7 @@ class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageC
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                     }
                 });
-
-                Log.e(TAG, "run: ");
+                Data.showMyLog("run: ");
             }
         };
 
@@ -85,7 +83,7 @@ class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageC
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Log.e(TAG, "xl:arrive here." + position);
+                Data.showMyLog("xl:arrive here." + position);
             }
         });
 

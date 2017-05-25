@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app1" />
+            <option value="$PROJECT_DIR$/javatest" />
             <option value="$PROJECT_DIR$/remusic" />
           </set>
         </option>

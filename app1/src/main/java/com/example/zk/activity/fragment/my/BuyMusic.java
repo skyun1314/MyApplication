@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.example.zk.activity.R;
 
 public class BuyMusic extends AppCompatActivity {
-    private static final String TAG = "wodelog";
     TextView t1;
     SeekBar seekBar;
     ImageView imageView;

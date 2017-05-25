@@ -130,5 +130,9 @@
         android:text="为您推荐" />
 
    <include layout="@layout/music_tuijian3"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+
 </LinearLayout>
 </ScrollView>

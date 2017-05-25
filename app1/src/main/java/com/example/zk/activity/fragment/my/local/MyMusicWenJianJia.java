@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.zk.activity.Data;
 import com.example.zk.activity.Music;
 import com.example.zk.activity.R;
 
@@ -27,7 +28,6 @@ import java.util.Map;
  */
 public class MyMusicWenJianJia extends Fragment {
 
-    String TAG = "wodelog";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,7 +37,7 @@ public class MyMusicWenJianJia extends Fragment {
         ListView listView = (ListView) inflate.findViewById(R.id.fragment_my_music_local_list_listview);
 
         String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String files[]={sdcardPath + "/qqmusic/song/",sdcardPath + "/netease/cloudmusic/music/"};
+        String files[]={sdcardPath + "/qqmusic/song/",sdcardPath + "/netease/cloudmusic/music/", Data.APP_FILE_PATH};
 
 
 
@@ -90,7 +90,7 @@ public class MyMusicWenJianJia extends Fragment {
 
                 Map map = new HashMap();
                 map.put("list", maplist);
-                map.put("fileName", fileName);
+                map.put("fileName", fileName[j]);
                 Maplists.add(map);
             }
         }

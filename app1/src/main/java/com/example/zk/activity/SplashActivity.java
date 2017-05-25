@@ -17,7 +17,6 @@ import java.util.TimerTask;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static String TAG = "wodelog";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class SplashActivity extends AppCompatActivity {
 
                     if (name.equals("manifest")) {
                         String package1 = parser.getAttributeValue("", "package");
-                        Log.e(TAG, "package: " + package1);
+                        Data.showMyLog("package: " + package1);
                     }
 
 
@@ -71,21 +70,19 @@ public class SplashActivity extends AppCompatActivity {
 
                         String permission = parser.getAttributeValue("", "android:name");
 
-                        Log.e(TAG, "uses-permission:" + permission);
+                        Data.showMyLog("uses-permission:" + permission);
                     }
 
                     else  if (name.equals("activity")) {
                          activity = parser.getAttributeValue("", "android:name");
-                        Log.e(TAG, "activity: " + activity);
-
+                        Data.showMyLog("activity: " + activity);
 
                     }
 
                     else  if (name.equals("category")) {
                         String category = parser.getAttributeValue("", "android:name");
                         if (category.equals("android.intent.category.LAUNCHER")){
-
-                            Log.e(TAG, "主activity是: "+ activity );
+                            Data.showMyLog("主activity是: "+ activity);
                         }
                     }
 

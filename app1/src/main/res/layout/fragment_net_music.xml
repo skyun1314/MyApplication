@@ -126,6 +126,7 @@
             android:text="热门推荐" />
 
         <LinearLayout
+            android:id="@+id/fragment_net_music_hot1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
@@ -135,6 +136,7 @@
 
 
         <LinearLayout
+            android:id="@+id/fragment_net_music_hot2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
@@ -152,6 +154,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/fragment_net_music_new1"
             android:layout_marginTop="10dp">
 
             <include layout="@layout/music_tuijian2" />
@@ -159,10 +162,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/fragment_net_music_new2"
             android:layout_marginTop="10dp">
 
             <include layout="@layout/music_tuijian2" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70dp" />
     </LinearLayout>
 
 

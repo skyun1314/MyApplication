@@ -1,0 +1,37 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp"
+    android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/music_tuijian2_item_title"
+            android:adjustViewBounds="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/hotmusic" />
+
+        <TextView
+            android:id="@+id/music_tuijian2_item_name"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/music_tuijian2_item_title"
+            android:text="haha" />
+
+        <TextView
+            android:id="@+id/music_tuijian2_item_auther"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/music_tuijian2_item_name"
+            android:text="haha" />
+</RelativeLayout>
+
+
+
+
+

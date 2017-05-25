@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
+import com.example.zk.activity.BaseActivity;
 import com.example.zk.activity.R;
 import com.example.zk.activity.adapter.TabLayoutViewPagerAdapter;
 import com.example.zk.activity.fragment.my.local.MyMusicDanQu;
@@ -16,7 +16,7 @@ import com.example.zk.activity.fragment.my.local.MyMusicZhuanJi;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalMusic extends AppCompatActivity {
+public class LocalMusic extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

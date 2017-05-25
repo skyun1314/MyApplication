@@ -1,1 +1,1 @@
-include ':app1', ':remusic'
+include ':app1', ':remusic', ':javatest'
