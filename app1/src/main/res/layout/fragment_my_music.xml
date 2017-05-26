@@ -129,7 +129,15 @@
         android:paddingBottom="15dp"
         android:text="为您推荐" />
 
-   <include layout="@layout/music_tuijian3"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/fragment_my_music_tuijian"
+        android:layout_height="wrap_content">
+        <include layout="@layout/music_tuijian3"/>
+
+    </LinearLayout>
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height="70dp" />

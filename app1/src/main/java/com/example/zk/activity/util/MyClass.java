@@ -2,6 +2,7 @@ package com.example.zk.activity.util;
 
 import android.os.Message;
 
+import com.example.zk.activity.fragment.MyMusic;
 import com.example.zk.activity.fragment.NetMusic;
 
 import org.json.JSONArray;
@@ -229,6 +230,11 @@ public class MyClass {
             Message message = NetMusic.handler.obtainMessage();
             message.obj= mymap;
             message.sendToTarget();
+
+
+            Message message1 = MyMusic.handler.obtainMessage();
+            message1.obj= newDieSHangJia;
+            message1.sendToTarget();
 
 
 

@@ -79,9 +79,9 @@ public class NetMusic extends Fragment {
                         setHot(inflate, R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot3, (Bitmap) hot.get(5).get("pic"), (String) hot.get(5).get("title"), (String) hot.get(5).get("num"), Geshou.class,ids1);
 
                         setHot(inflate, R.id.fragment_net_music_new1, R.id.music_tuijian2_iv1, (Bitmap) new1.get(0).get("pic"), (String) new1.get(0).get("title"), (String) new1.get(0).get("author"), Geshou.class,ids2);
-                        setHot(inflate, R.id.fragment_net_music_new1, R.id.music_tuijian2_iv2, (Bitmap) new1.get(1).get("pic"), (String) new1.get(1).get("title"), (String) new1.get(1).get("author"), Geshou.class,ids2);
-                        setHot(inflate, R.id.fragment_net_music_new2, R.id.music_tuijian2_iv1, (Bitmap) new1.get(2).get("pic"), (String) new1.get(2).get("title"), (String) new1.get(2).get("author"), Geshou.class,ids2);
-                        setHot(inflate, R.id.fragment_net_music_new2, R.id.music_tuijian2_iv2, (Bitmap) new1.get(3).get("pic"), (String) new1.get(3).get("title"), (String) new1.get(3).get("author"), Geshou.class,ids2);
+                        setHot(inflate, R.id.fragment_net_music_new1, R.id.music_tuijian2_iv2, (Bitmap) new1.get(4).get("pic"), (String) new1.get(4).get("title"), (String) new1.get(4).get("author"), Geshou.class,ids2);
+                        setHot(inflate, R.id.fragment_net_music_new2, R.id.music_tuijian2_iv1, (Bitmap) new1.get(7).get("pic"), (String) new1.get(7).get("title"), (String) new1.get(7).get("author"), Geshou.class,ids2);
+                        setHot(inflate, R.id.fragment_net_music_new2, R.id.music_tuijian2_iv2, (Bitmap) new1.get(8).get("pic"), (String) new1.get(8).get("title"), (String) new1.get(8).get("author"), Geshou.class,ids2);
 
 
 

@@ -30,8 +30,8 @@ public class MyAES {
             return null;
         }
         byte[] raw = sKey.getBytes();
-        SecretKeySpec skeySpec = new SecretKeySpec(raw, "MyAES");
-        Cipher cipher = Cipher.getInstance("MyAES/CBC/PKCS5Padding");//"算法/模式/补码方式"
+        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");//"算法/模式/补码方式"
         IvParameterSpec iv = new IvParameterSpec("0102030405060708".getBytes());//使用CBC模式，需要一个向量iv，可增加加密算法的强度
         cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
         byte[] encrypted = cipher.doFinal(sSrc.getBytes());
@@ -53,8 +53,8 @@ public class MyAES {
                 return null;
             }
             byte[] raw = sKey.getBytes("UTF-8");
-            SecretKeySpec skeySpec = new SecretKeySpec(raw, "MyAES");
-            Cipher cipher = Cipher.getInstance("MyAES/CBC/PKCS5Padding");
+            SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             IvParameterSpec iv = new IvParameterSpec("0102030405060708"
                     .getBytes());
             cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
