@@ -21,8 +21,12 @@ import java.util.Map;
 public class MyClass {
 
     public static void main(String[] args) {
-       // discover.getbanner();
-        discover.getMusicById("479979010");
+        // discover.getbanner();
+        // discover.getMusicById("479979010");
+        //discover.instans();
+
+       //discover.getByEncSecKey(MyAES.getWhat.getMusicByid,"479979010");
+       discover.getByEncSecKey(MyAES.getWhat.getMusicByKeyWord,"479979010");
     }
 
 
@@ -206,13 +210,25 @@ public class MyClass {
             return mapList;
         }
 
+
+
+
         /*
         *根据id获取音乐
          */
-        public static String getMusicById(String id) {//id ="479979010"
+        public static String getByEncSecKey(MyAES.getWhat getWhat, String id) {//id ="479979010"
             try {
                 // 1. 创建URL对象
-                URL url = new URL("http://music.163.com/weapi/song/enhance/player/url?csrf_token=");
+                URL url = null;
+                switch (getWhat){
+                    case getMusicByid:
+                        url = new URL("http://music.163.com/weapi/song/enhance/player/url?csrf_token=");
+                        break;
+                    case getMusicByKeyWord:
+                        url = new URL("http://music.163.com/weapi/cloudsearch/get/web?csrf_token=");
+                        break;
+                }
+
                 // 2. 创建URL连接
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 // 3. 设置请求信息
@@ -226,8 +242,9 @@ public class MyClass {
                 urlConnection.setDoOutput(true);
                 // 5. 构造提交参数(输出流)并提交
                 PrintWriter out = new PrintWriter(urlConnection.getOutputStream());
-                String param = MyAES.get_param(id);
+                String param = MyAES.get_param(getWhat,id);
                 print("-----%s",param);
+            //    param="params=TO%2FLEHTGmchynSFd5iFZHAZFz%2B%2B2oHiIymGISFzqo36EwW1P1%2Fp2x0PZTge0AXva7pQojWNT5jWx%0AD8sFpXSjdQPCg%2BLSdCI722lndkqTi5UleVG3lwE02D5ZbbGAe0B3WpCyBhNfdaULMxyopq7tJDLJ%0AFOz7d6bdRr%2FiwAwPZASXYBDcdZIUJyjsYw0ulY0%2Ff9%2BwhEBnqQ8u%2B6zUtH9pBOy3vrRB1JQ2E9z7%0A0I8y8cdbpLbiGGaXyDN7KNNZgyNFuyi2%2FP36g8WrzRVkDlreDU%2BCr5HF2Quq4jP2XeuYFas%3D&encSecKey=257348aecb5e556c066de214e531faadd1c55d814f9be95fd06d6bff9f4c7a41f831f6394d5a3fd2e3881736d94a02ca919d952872e7d0a50ebfa1769a7a62d512f5f1ca21aec60bc3819a9c3ffca5eca9a0dba6d6f7249b06f5965ecfff3695b54e1c28f3f624750ed39e7de08fc8493242e26dbc4484a01c76f739e135637c";
                 out.print(param);
                 // 提交
                 out.flush();
@@ -238,17 +255,17 @@ public class MyClass {
                 while ((str = bufferedReader.readLine()) != null) {
                     stringBuffer.append(str);
                 }
-                print("getMusicById: " + stringBuffer.toString());
+              print("getMusicById: " + stringBuffer.toString());
 
 
-                JSONObject jsonObject = new JSONObject(stringBuffer.toString());
+            /*    JSONObject jsonObject = new JSONObject(stringBuffer.toString());
 
                 JSONArray data = (JSONArray) jsonObject.get("data");
 
                 JSONObject o = (JSONObject) data.get(0);
 
                 String string = o.getString("url");
-                print("----------" + string);
+              //  print("----------" + string);*/
 
                 return new String(stringBuffer);
 

@@ -8,12 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import com.example.zk.activity.Data;
+import com.example.zk.activity.Music;
 import com.example.zk.activity.R;
 import com.example.zk.activity.fragment.my.local.MyMusicListAdapter;
-import com.example.zk.activity.fragment.my.local.MyMusicWenJianJia;
 
 import java.util.List;
-import java.util.Map;
 
 public class DowloadMusic extends AppCompatActivity {
 
@@ -23,36 +22,35 @@ public class DowloadMusic extends AppCompatActivity {
         setContentView(R.layout.fragment_my_music_local_list);
         ListView listView = (ListView) findViewById(R.id.fragment_my_music_local_list_listview);
 
-        String files[]={Data.APP_FILE_PATH};
-        List<Map<String, Object>> musicWenJianJia = MyMusicWenJianJia.getMusicWenJianJia(files);
-        if (musicWenJianJia.size()!=0){
-            Map<String, Object> map = musicWenJianJia.get(0);
-            List<Map<String, Object>> maplist    = (List<Map<String, Object>>) map.get("list");
-            BaseAdapter adapter = new MyImgAdapter(this, maplist);
+
+        List<Music> musicInfo =
+                Music.MusicUtil.getMusicInfo(Data.APP_FILE_PATH,this);
+
+            BaseAdapter adapter = new MyImgAdapter(this, musicInfo);
             listView.setAdapter(adapter);
-        }
 
 
 
     }
     class MyImgAdapter extends MyMusicListAdapter {
 
-        public MyImgAdapter(Context context, List<Map<String, Object>> musics) {
+        public MyImgAdapter(Context context, List<Music> musics) {
             super(context, musics);
         }
 
         @Override
         public void setView(final int position, ViewHolder holder, View convertView) {
-            Map<String,Object> music = (Map<String, Object>) musics.get(position);
-          //  holder.img.setImageBitmap((Bitmap) music.get("pic"));
-            holder.title.setText((String)music.get("tilte"));
-            holder.info.setText((String)music.get("artist"));
-
-
+            final Music music = (Music) musics.get(position);
+            // holder.img.setImageBitmap(music.get(""));
+            holder.title.setText((CharSequence) music.getTitle());
+            holder.info.setText((CharSequence) music.getSinger());
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
+
+
+              //      Music.setMusic((String) music.getUrl(),quickcontrolsfragment1);
                 }
             });
         }

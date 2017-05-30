@@ -32,7 +32,7 @@ public class MyMusicGeShou extends Fragment {
         ListView listView = (ListView) inflate.findViewById(R.id.fragment_my_music_local_list_listview);
 
 
-        BaseAdapter adapter = new MyImgAdapter(getContext(), Music.getAllArtists(getContext()));
+        BaseAdapter adapter = new MyImgAdapter(getContext(), Music.MusicUtil.getAllArtists(getContext()));
         listView.setAdapter(adapter);
         return inflate;
     }
@@ -52,8 +52,8 @@ public class MyMusicGeShou extends Fragment {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    List<Map<String, Object>> id =
-                            Music.getMusicInfo(context,
+                    List<Music> id =
+                            Music.MusicUtil.getMusicInfo(context,
                                     MediaStore.Audio.Media.ARTIST_ID, (int) music.get("id") + "");
                     Intent intent = new Intent(getActivity(), MyMusicDanQu1.class);
                     intent.putExtra("listMap", (Serializable) id);

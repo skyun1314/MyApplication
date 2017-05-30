@@ -33,7 +33,7 @@ public class MyMusicZhuanJi extends Fragment {
         ListView listView = (ListView) inflate.findViewById(R.id.fragment_my_music_local_list_listview);
 
 
-        BaseAdapter adapter = new MyImgAdapter(getContext(), Music.getAllAlbums(getContext()));
+        BaseAdapter adapter = new MyImgAdapter(getContext(), Music.MusicUtil.getAllAlbums(getContext()));
         listView.setAdapter(adapter);
         return inflate;
     }
@@ -54,8 +54,8 @@ public class MyMusicZhuanJi extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Map<String,Object> music = (Map<String, Object>) musics.get(position);
-                    List<Map<String, Object>> id =
-                            Music.getMusicInfo(context,
+                    List<Music> id =
+                            Music.MusicUtil.getMusicInfo(context,
                                     MediaStore.Audio.Media.ALBUM_ID, (int) music.get("id") + "");
                     Intent intent = new Intent(getActivity(), MyMusicDanQu1.class);
                     intent.putExtra("listMap", (Serializable) id);

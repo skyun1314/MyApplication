@@ -12458,6 +12458,7 @@ lowBitMasks = new Array(0,1,3,7,15,31,63,127,255,511,1023,2047,4095,8191,16383,3
         return c
     }
     function b(a, b) {
+
         var c = CryptoJS.enc.Utf8.parse(b)
           , d = CryptoJS.enc.Utf8.parse("0102030405060708")
           , e = CryptoJS.enc.Utf8.parse(a)
@@ -12471,15 +12472,20 @@ lowBitMasks = new Array(0,1,3,7,15,31,63,127,255,511,1023,2047,4095,8191,16383,3
         var d, e;
         return setMaxDigits(131),
         d = new RSAKeyPair(b,"",c),
+
         e = encryptedString(d, a)
     }
     function d(d, e, f, g) {
         var h = {}
           , i = a(16);
-        return h.encText = b(d, g),
+
+//alert(e); encodeURIComponent
+
+
+         h.encText = b(d, g),
         h.encText = encodeURIComponent(b(h.encText, i)),
-        h.encSecKey = c(i, e, f),
-        h
+        h.encSecKey = c(i, e, f);
+      return  h
 
     }
     function e(a, b, d, e) {

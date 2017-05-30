@@ -86,12 +86,34 @@ public class MyAES {
         return encSecKey;
     }
 
-    public static String get_param(String args)  {
+    public static enum getWhat{
+        getMusicByid,
+        getMusicByKeyWord
+    }
+
+
+    public static String get_param(getWhat getWhat,String args)  {
         /*
          * 加密用的Key 可以用26个字母和数字组成，最好不要用保留字符，虽然不会错，至于怎么裁决，个人看情况而定
          * 此处使用AES-128-CBC加密模式，key需要为16位。
          */
-        String first_param = "{\"ids\":\"[" + args + "]\",\"br\":128000,\"csrf_token\":\"\"}";
+        String first_param = null;
+        switch (getWhat){
+            case getMusicByid:
+                 first_param = "{\"ids\":\"[" + args + "]\",\"br\":128000,\"csrf_token\":\"\"}";
+                break;
+            case getMusicByKeyWord:
+
+
+                first_param="{\"hlpretag\":\"<span class=\"s-fc7\">\",\"hlposttag\":\"</span>\",\"s\":\"xiaohuaa\",\"type\":\"1\",\"offset\":\"0\",\"total\":\"true\",\"limit\":\"30\",\"csrf_token\":\"\"}";
+                first_param="{\"hlpretag\":\"<span class=\\\\\"s-fc7\\\\\">\",\"hlposttag\":\"</span>\",\"s\":\"" + "xiaohudui"+
+                        "\",\"type\":\"1\",\"offset\":\"0\",\"total\":\"true\",\"limit\":\"30\",\"csrf_token\":\"\"}";
+
+                break;
+
+        }
+
+
         try {
             return "params=" + URLEncoder.encode(MyAES.get_params(first_param), "UTF-8") + "&encSecKey=" + MyAES.get_encSecKey();
         } catch (Exception e) {

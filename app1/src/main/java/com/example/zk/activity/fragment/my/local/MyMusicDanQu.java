@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.zk.activity.Music;
 import com.example.zk.activity.R;
@@ -31,10 +30,12 @@ public class MyMusicDanQu extends Fragment {
         ListView listView= (ListView) inflate.findViewById(R.id.fragment_my_music_local_list_listview);
 
 
-        BaseAdapter adapter=new MyImgAdapter(getContext(), Music.getAllMusic(getContext()));
+        BaseAdapter adapter=new MyImgAdapter(getContext(), Music.MusicUtil.getAllMusic(getContext()));
         listView.setAdapter(adapter);
         return inflate;
     }
+
+
 
 
     class MyImgAdapter extends MyMusicListAdapter{
@@ -54,7 +55,8 @@ public class MyMusicDanQu extends Fragment {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context,music.getUrl(),Toast.LENGTH_LONG).show();
+
+                    Music.MusicUtil.setMusic(music.getUrl());
                 }
             });
 

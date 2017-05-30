@@ -11,7 +11,12 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class BaseActivity extends AppCompatActivity {
-    private QuickControlsFragment fragment; //底部播放控制栏
+
+
+
+
+
+    public QuickControlsFragment quickcontrolsfragment1; //底部播放控制栏
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +33,17 @@ public class BaseActivity extends AppCompatActivity {
     protected void showQuickControl(boolean show) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             if (show) {
-                if (fragment == null) {
+                if (quickcontrolsfragment1 == null) {
                     Data.showMyLog("我是空的：showQuickControl，我要重新创建");
-                    fragment =new QuickControlsFragment();// QuickControlsFragment.newInstance();
-                    ft.add(R.id.app_bar_main_bottom_container, fragment).commitAllowingStateLoss();
+                    quickcontrolsfragment1 =new QuickControlsFragment();// QuickControlsFragment.newInstance();
+                    ft.add(R.id.app_bar_main_bottom_container, quickcontrolsfragment1).commitAllowingStateLoss();
                 } else {
                     Data.showMyLog("我不是空的：showQuickControl");
-                    ft.show(fragment).commitAllowingStateLoss();
+                    ft.show(quickcontrolsfragment1).commitAllowingStateLoss();
                 }
             } else {
-                if (fragment != null)
-                    ft.hide(fragment).commitAllowingStateLoss();
+                if (quickcontrolsfragment1 != null)
+                    ft.hide(quickcontrolsfragment1).commitAllowingStateLoss();
             }
 
 
