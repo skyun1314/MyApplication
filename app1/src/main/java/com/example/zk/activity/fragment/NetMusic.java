@@ -46,13 +46,26 @@ public class NetMusic extends Fragment {
         viewPagerInit(inflate);
 
 
-        setItem(inflate, R.id.fragment_net_music_geshou, R.drawable.ic_menu_camera, "歌手", Geshou.class);
-        setItem(inflate, R.id.fragment_net_music_paihang, R.drawable.ic_menu_gallery, "排行 \u3000", Paihang.class);
-        setItem(inflate, R.id.fragment_net_music_diantai, R.drawable.ic_menu_manage, "电台\u3000\u3000", DianTai.class);
-        setItem(inflate, R.id.fragment_net_music_fenlei, R.drawable.ic_menu_send, "分类歌单", FengLei.class);
-        setItem(inflate, R.id.fragment_net_music_mv, R.drawable.ic_menu_share, "视频MV", MV.class);
-        setItem(inflate, R.id.fragment_net_music_shuzi, R.drawable.ic_menu_slideshow, "数字专辑", BuyMusic.class);
+        setItem( R.id.fragment_net_music_geshou, R.drawable.ic_menu_camera, "歌手", Geshou.class);
+        setItem( R.id.fragment_net_music_paihang, R.drawable.ic_menu_gallery, "排行 \u3000", Paihang.class);
+        setItem( R.id.fragment_net_music_diantai, R.drawable.ic_menu_manage, "电台\u3000\u3000", DianTai.class);
+        setItem( R.id.fragment_net_music_fenlei, R.drawable.ic_menu_send, "分类歌单", FengLei.class);
+        setItem(R.id.fragment_net_music_mv, R.drawable.ic_menu_share, "视频MV", MV.class);
+        setItem( R.id.fragment_net_music_shuzi, R.drawable.ic_menu_slideshow, "数字专辑", BuyMusic.class);
 
+
+
+        setHot1( R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot1,  Geshou.class);
+        setHot1( R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot2, Geshou.class);
+        setHot1( R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot3, Geshou.class);
+        setHot1( R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot1, Geshou.class);
+        setHot1( R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot2, Geshou.class);
+        setHot1( R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot3, Geshou.class);
+
+        setHot1( R.id.fragment_net_music_new1, R.id.music_tuijian2_iv1, Geshou.class);
+        setHot1( R.id.fragment_net_music_new1, R.id.music_tuijian2_iv2,  Geshou.class);
+        setHot1( R.id.fragment_net_music_new2, R.id.music_tuijian2_iv1,  Geshou.class);
+        setHot1( R.id.fragment_net_music_new2, R.id.music_tuijian2_iv2,  Geshou.class);
 
 
 
@@ -71,17 +84,17 @@ public class NetMusic extends Fragment {
                 int ids2[]={R.id.music_tuijian2_item_title,R.id.music_tuijian2_item_name,R.id.music_tuijian2_item_auther};
 
 
-                        setHot(inflate, R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot1, (Bitmap) hot.get(0).get("pic"), (String) hot.get(0).get("title"), (String) hot.get(0).get("num"), Geshou.class,ids1);
-                        setHot(inflate, R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot2, (Bitmap) hot.get(1).get("pic"), (String) hot.get(1).get("title"), (String) hot.get(1).get("num"), Geshou.class,ids1);
-                        setHot(inflate, R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot3, (Bitmap) hot.get(2).get("pic"), (String) hot.get(2).get("title"), (String) hot.get(2).get("num"), Geshou.class,ids1);
-                        setHot(inflate, R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot1, (Bitmap) hot.get(3).get("pic"), (String) hot.get(3).get("title"), (String) hot.get(3).get("num"), Geshou.class,ids1);
-                        setHot(inflate, R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot2, (Bitmap) hot.get(4).get("pic"), (String) hot.get(4).get("title"), (String) hot.get(4).get("num"), Geshou.class,ids1);
-                        setHot(inflate, R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot3, (Bitmap) hot.get(5).get("pic"), (String) hot.get(5).get("title"), (String) hot.get(5).get("num"), Geshou.class,ids1);
+                        setHot( R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot1, (Bitmap) hot.get(0).get("pic"), (String) hot.get(0).get("title"), (String) hot.get(0).get("num"), ids1);
+                        setHot( R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot2, (Bitmap) hot.get(1).get("pic"), (String) hot.get(1).get("title"), (String) hot.get(1).get("num"), ids1);
+                        setHot( R.id.fragment_net_music_hot1, R.id.music_tuijian3_hot3, (Bitmap) hot.get(2).get("pic"), (String) hot.get(2).get("title"), (String) hot.get(2).get("num"), ids1);
+                        setHot( R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot1, (Bitmap) hot.get(3).get("pic"), (String) hot.get(3).get("title"), (String) hot.get(3).get("num"), ids1);
+                        setHot( R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot2, (Bitmap) hot.get(4).get("pic"), (String) hot.get(4).get("title"), (String) hot.get(4).get("num"), ids1);
+                        setHot( R.id.fragment_net_music_hot2, R.id.music_tuijian3_hot3, (Bitmap) hot.get(5).get("pic"), (String) hot.get(5).get("title"), (String) hot.get(5).get("num"), ids1);
 
-                        setHot(inflate, R.id.fragment_net_music_new1, R.id.music_tuijian2_iv1, (Bitmap) new1.get(0).get("pic"), (String) new1.get(0).get("title"), (String) new1.get(0).get("author"), Geshou.class,ids2);
-                        setHot(inflate, R.id.fragment_net_music_new1, R.id.music_tuijian2_iv2, (Bitmap) new1.get(4).get("pic"), (String) new1.get(4).get("title"), (String) new1.get(4).get("author"), Geshou.class,ids2);
-                        setHot(inflate, R.id.fragment_net_music_new2, R.id.music_tuijian2_iv1, (Bitmap) new1.get(7).get("pic"), (String) new1.get(7).get("title"), (String) new1.get(7).get("author"), Geshou.class,ids2);
-                        setHot(inflate, R.id.fragment_net_music_new2, R.id.music_tuijian2_iv2, (Bitmap) new1.get(8).get("pic"), (String) new1.get(8).get("title"), (String) new1.get(8).get("author"), Geshou.class,ids2);
+                        setHot( R.id.fragment_net_music_new1, R.id.music_tuijian2_iv1, (Bitmap) new1.get(0).get("pic"), (String) new1.get(0).get("title"), (String) new1.get(0).get("author"), ids2);
+                        setHot( R.id.fragment_net_music_new1, R.id.music_tuijian2_iv2, (Bitmap) new1.get(4).get("pic"), (String) new1.get(4).get("title"), (String) new1.get(4).get("author"), ids2);
+                        setHot( R.id.fragment_net_music_new2, R.id.music_tuijian2_iv1, (Bitmap) new1.get(7).get("pic"), (String) new1.get(7).get("title"), (String) new1.get(7).get("author"), ids2);
+                        setHot( R.id.fragment_net_music_new2, R.id.music_tuijian2_iv2, (Bitmap) new1.get(8).get("pic"), (String) new1.get(8).get("title"), (String) new1.get(8).get("author"), ids2);
 
 
 
@@ -122,7 +135,7 @@ public class NetMusic extends Fragment {
     }
 
 
-    public void setHot(View inflate, int itme_layout, int itme_layout2, Bitmap nIcon, String nName, String nNum, final Class activity,int ids[]) {
+    public void setHot( int itme_layout, int itme_layout2, Bitmap nIcon, String nName, String nNum,int ids[]) {
         LinearLayout layout1 = (LinearLayout) inflate.findViewById(itme_layout);
         RelativeLayout layout = (RelativeLayout) layout1.findViewById(itme_layout2);
 
@@ -133,6 +146,14 @@ public class NetMusic extends Fragment {
         icon.setImageBitmap(nIcon);
         name.setText(nName);
         num.setText(nNum);
+
+
+    }
+
+    public void setHot1(int itme_layout, int itme_layout2, final Class activity) {
+        LinearLayout layout1 = (LinearLayout) inflate.findViewById(itme_layout);
+        RelativeLayout layout = (RelativeLayout) layout1.findViewById(itme_layout2);
+
 
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,8 +167,7 @@ public class NetMusic extends Fragment {
     }
 
 
-
-    public void setItem(View inflate, int itme_layout, int nIcon, String nName, final Class activity) {
+    public void setItem(int itme_layout, int nIcon, String nName, final Class activity) {
         LinearLayout layout = (LinearLayout) inflate.findViewById(itme_layout);
         ImageView icon = (ImageView) layout.findViewById(R.id.fragment_net_music_item_icon);
         TextView name = (TextView) layout.findViewById(R.id.fragment_net_music_item_name);

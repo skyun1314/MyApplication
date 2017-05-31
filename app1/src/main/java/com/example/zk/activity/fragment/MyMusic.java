@@ -62,9 +62,9 @@ public class MyMusic extends Fragment {
 
 
 
-                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, (Bitmap) new1.get(1).get("pic"), (String) new1.get(1).get("title"), (String) new1.get(1).get("author"), Geshou.class,ids1);
-                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, (Bitmap) new1.get(2).get("pic"), (String) new1.get(2).get("title"), (String) new1.get(2).get("author"), Geshou.class,ids1);
-                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3, (Bitmap) new1.get(3).get("pic"), (String) new1.get(3).get("title"), (String) new1.get(3).get("author"), Geshou.class,ids1);
+                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, (Bitmap) new1.get(1).get("pic"), (String) new1.get(1).get("title"), (String) new1.get(1).get("author"),ids1);
+                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, (Bitmap) new1.get(2).get("pic"), (String) new1.get(2).get("title"), (String) new1.get(2).get("author"), ids1);
+                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3, (Bitmap) new1.get(3).get("pic"), (String) new1.get(3).get("title"), (String) new1.get(3).get("author"), ids1);
 
 
 
@@ -96,7 +96,7 @@ public class MyMusic extends Fragment {
 
     }
 
-    public void setHot(int itme_layout, int itme_layout2, Bitmap nIcon, String nName, String nNum, final Class activity, int ids[]) {
+    public void setHot(int itme_layout, int itme_layout2, Bitmap nIcon, String nName, String nNum, int ids[]) {
         LinearLayout layout1 = (LinearLayout) inflate.findViewById(itme_layout);
         RelativeLayout layout = (RelativeLayout) layout1.findViewById(itme_layout2);
 
