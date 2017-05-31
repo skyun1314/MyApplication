@@ -34,6 +34,7 @@ public class MyMusic extends Fragment {
 
     View inflate;
     public static Handler handler ;
+    int ids1[]={R.id.music_tuijian3_im1,R.id.music_tuijian3_src1,R.id.music_tuijian3_num};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,12 +42,16 @@ public class MyMusic extends Fragment {
          inflate = inflater.inflate(R.layout.fragment_my_music, container, false);
 
 
-        setItem(inflate,R.id.fragment_my_music_itme_local,R.drawable.ic_menu_camera,"本地歌曲",1, LocalMusic.class);
-        setItem(inflate,R.id.fragment_my_music_itme_dowload,R.drawable.ic_menu_gallery,"下载歌曲",1, DowloadMusic.class);
-        setItem(inflate,R.id.fragment_my_music_itme_recent,R.drawable.ic_menu_manage,"最近播放",1, RecentMusic.class);
-        setItem(inflate,R.id.fragment_my_music_itme_like,R.drawable.ic_menu_send,"我喜欢",1, LikeMusic.class);
-        setItem(inflate,R.id.fragment_my_music_itme_mv,R.drawable.ic_menu_share,"下载MV",1, MVMusic.class);
-        setItem(inflate,R.id.fragment_my_music_itme_buy,R.drawable.ic_menu_slideshow,"以购音乐",1, BuyMusic.class);
+        setItem(R.id.fragment_my_music_itme_local,R.drawable.ic_menu_camera,"本地歌曲",1, LocalMusic.class);
+        setItem(R.id.fragment_my_music_itme_dowload,R.drawable.ic_menu_gallery,"下载歌曲",1, DowloadMusic.class);
+        setItem(R.id.fragment_my_music_itme_recent,R.drawable.ic_menu_manage,"最近播放",1, RecentMusic.class);
+        setItem(R.id.fragment_my_music_itme_like,R.drawable.ic_menu_send,"我喜欢",1, LikeMusic.class);
+        setItem(R.id.fragment_my_music_itme_mv,R.drawable.ic_menu_share,"下载MV",1, MVMusic.class);
+        setItem(R.id.fragment_my_music_itme_buy,R.drawable.ic_menu_slideshow,"以购音乐",1, BuyMusic.class);
+
+        setHot1( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, Geshou.class);
+        setHot1( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, Geshou.class);
+        setHot1( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3,Geshou.class);
 
 
         handler =new Handler(new Handler.Callback() {
@@ -55,11 +60,12 @@ public class MyMusic extends Fragment {
 
                 List<Map<String, Object>> new1= ( List<Map<String, Object>>) msg.obj;
 
-                int ids1[]={R.id.music_tuijian3_im1,R.id.music_tuijian3_src1,R.id.music_tuijian3_num};
 
-                setHot(inflate, R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, (Bitmap) new1.get(1).get("pic"), (String) new1.get(1).get("title"), (String) new1.get(1).get("author"), Geshou.class,ids1);
-                setHot(inflate, R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, (Bitmap) new1.get(2).get("pic"), (String) new1.get(2).get("title"), (String) new1.get(2).get("author"), Geshou.class,ids1);
-                setHot(inflate, R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3, (Bitmap) new1.get(3).get("pic"), (String) new1.get(3).get("title"), (String) new1.get(3).get("author"), Geshou.class,ids1);
+
+                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, (Bitmap) new1.get(1).get("pic"), (String) new1.get(1).get("title"), (String) new1.get(1).get("author"), Geshou.class,ids1);
+                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, (Bitmap) new1.get(2).get("pic"), (String) new1.get(2).get("title"), (String) new1.get(2).get("author"), Geshou.class,ids1);
+                setHot( R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3, (Bitmap) new1.get(3).get("pic"), (String) new1.get(3).get("title"), (String) new1.get(3).get("author"), Geshou.class,ids1);
+
 
 
                 return false;
@@ -70,7 +76,7 @@ public class MyMusic extends Fragment {
         return inflate;
     }
 
-    public void setItem(View inflate, int itme_layout, int nIcon, String nName, int nNum, final Class activity){
+    public void setItem( int itme_layout, int nIcon, String nName, int nNum, final Class activity){
         LinearLayout layout= (LinearLayout) inflate.findViewById(itme_layout);
         ImageView icon= (ImageView) layout.findViewById(R.id.fragment_my_music_item_icon);
         TextView name= (TextView) layout.findViewById(R.id.fragment_my_music_item_name);
@@ -90,7 +96,7 @@ public class MyMusic extends Fragment {
 
     }
 
-    public void setHot(View inflate, int itme_layout, int itme_layout2, Bitmap nIcon, String nName, String nNum, final Class activity, int ids[]) {
+    public void setHot(int itme_layout, int itme_layout2, Bitmap nIcon, String nName, String nNum, final Class activity, int ids[]) {
         LinearLayout layout1 = (LinearLayout) inflate.findViewById(itme_layout);
         RelativeLayout layout = (RelativeLayout) layout1.findViewById(itme_layout2);
 
@@ -102,6 +108,12 @@ public class MyMusic extends Fragment {
         name.setText(nName);
         num.setText(nNum);
 
+    }
+
+    public void setHot1(int itme_layout, int itme_layout2, final Class activity) {
+        LinearLayout layout1 = (LinearLayout) inflate.findViewById(itme_layout);
+        RelativeLayout layout = (RelativeLayout) layout1.findViewById(itme_layout2);
+
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +124,7 @@ public class MyMusic extends Fragment {
         });
 
     }
+
 
 
 }

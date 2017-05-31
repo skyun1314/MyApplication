@@ -2,11 +2,11 @@ package com.example.zk.activity.fragment.my;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.zk.activity.BaseActivity;
 import com.example.zk.activity.Data;
 import com.example.zk.activity.Music;
 import com.example.zk.activity.R;
@@ -14,7 +14,7 @@ import com.example.zk.activity.fragment.my.local.MyMusicListAdapter;
 
 import java.util.List;
 
-public class DowloadMusic extends AppCompatActivity {
+public class DowloadMusic extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class DowloadMusic extends AppCompatActivity {
 
 
 
-              //      Music.setMusic((String) music.getUrl());
+                    Music.MusicUtil.setMusic(music,quickcontrolsfragment1);
                 }
             });
         }

@@ -1,11 +1,11 @@
 package com.example.zk.activity.fragment.my;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import com.example.zk.activity.BaseActivity;
 import com.example.zk.activity.R;
 
-public class RecentMusic extends AppCompatActivity {
+public class RecentMusic extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

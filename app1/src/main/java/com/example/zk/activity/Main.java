@@ -47,7 +47,7 @@ public class Main extends BaseActivity
         list.add(new FindMusic());
         String[] mTitles = new String[]{"我的", "音乐馆", "发现"};
 
-
+        viewPager.setOffscreenPageLimit(2);
         //ViewPager的适配器
         TabLayoutViewPagerAdapter adapter = new TabLayoutViewPagerAdapter(getSupportFragmentManager(),list,mTitles);
         viewPager.setAdapter(adapter);
