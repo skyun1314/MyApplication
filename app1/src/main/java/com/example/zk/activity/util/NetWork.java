@@ -13,26 +13,27 @@ import java.net.URL;
 
 public class NetWork {
 
-    public static Bitmap getPicByGet(String path) {
+    public static Bitmap getPicByGet( String path) {
 
-        try {
-            URL url = new URL(path);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
-            urlConnection.setConnectTimeout(5000);
 
-            int code = urlConnection.getResponseCode();
-            if (code == 200) {
-                InputStream inputStream = urlConnection.getInputStream();
-                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                try {
+                    URL url = new URL(path);
+                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("GET");
+                    urlConnection.setConnectTimeout(5000);
 
-                return bitmap;
+                    int code = urlConnection.getResponseCode();
+                    if (code == 200) {
+                        InputStream inputStream = urlConnection.getInputStream();
+                        final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                        return bitmap;
+                    }
 
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
         return null;
     }
+
+
 }

@@ -1,10 +1,10 @@
 package com.example.zk.activity;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+
+import com.example.zk.activity.util.MyClass;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -23,7 +23,13 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                MyClass.wangyiyun();
+            }
+        }).start();
+        ;
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -33,13 +39,15 @@ public class SplashActivity extends AppCompatActivity {
             }
         };
         timer.schedule(task, 0);
-        AssetManager manager = getAssets();
+
+
+       /* AssetManager manager = getAssets();
         try {
             InputStream open = manager.open("AndroidManifest.xml");
             readManifest(open);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 

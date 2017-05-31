@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import com.example.zk.activity.BaseActivity;
+import com.example.zk.activity.Music;
 import com.example.zk.activity.R;
 import com.example.zk.activity.adapter.TabLayoutViewPagerAdapter;
 import com.example.zk.activity.fragment.my.local.MyMusicDanQu;
@@ -36,7 +37,10 @@ public class LocalMusic extends BaseActivity {
         list.add(new MyMusicGeShou());
         list.add(new MyMusicZhuanJi());
         list.add(new MyMusicWenJianJia());
-        String[] mTitles = new String[]{"歌曲", "歌手", "专辑","文件夹"};
+        String[] mTitles = new String[]{"歌曲 "+ Music.MusicUtil.getAllMusic(this).size(),
+                "歌手 "+Music.MusicUtil.getAllArtists(this).size(),
+                "专辑 "+ Music.MusicUtil.getAllAlbums(this).size(),
+                "文件夹 "+Music.MusicUtil.getMusicDirs(this).size()};
 
 
         //ViewPager的适配器

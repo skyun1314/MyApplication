@@ -105,8 +105,7 @@ public class MyAES {
             case getMusicByKeyWord:
 
 
-                first_param="{\"hlpretag\":\"<span class=\"s-fc7\">\",\"hlposttag\":\"</span>\",\"s\":\"xiaohuaa\",\"type\":\"1\",\"offset\":\"0\",\"total\":\"true\",\"limit\":\"30\",\"csrf_token\":\"\"}";
-                first_param="{\"hlpretag\":\"<span class=\\\\\"s-fc7\\\\\">\",\"hlposttag\":\"</span>\",\"s\":\"" + "xiaohudui"+
+                first_param="{\"hlpretag\":\"<span class=\\\\\"s-fc7\\\\\">\",\"hlposttag\":\"</span>\",\"s\":\"" + args+
                         "\",\"type\":\"1\",\"offset\":\"0\",\"total\":\"true\",\"limit\":\"30\",\"csrf_token\":\"\"}";
 
                 break;

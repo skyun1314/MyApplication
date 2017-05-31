@@ -18,15 +18,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MyClass {
+public class WYYAPI {
 
     public static void main(String[] args) {
-        // discover.getbanner();
+
         // discover.getMusicById("479979010");
         //discover.instans();
 
-       //discover.getByEncSecKey(MyAES.getWhat.getMusicByid,"479979010");
-       discover.getByEncSecKey(MyAES.getWhat.getMusicByKeyWord,"479979010");
+       //discover.getMusicByKeyWord(MyAES.getWhat.getMusicByid,"479979010");
+   //    discover.getMusicByKeyWord(MyAES.getWhat.getMusicByKeyWord,"479979010");
     }
 
 
@@ -71,14 +71,16 @@ public class MyClass {
 
 
     public static class discover {
-        public static List<Map<String, String>> instans() {
+
+        private static ArrayList<Elements> elementList;
+        public static List<Object> instans() {
 
             try {
 
                 Document doc = Jsoup.connect("http://music.163.com/discover").get();
                 Element elementsByClass = doc.getElementsByClass("g-wrap3").first();
                 Elements childrens = elementsByClass.children();
-                List<Elements> elementList = new ArrayList<>();
+                elementList = new ArrayList<>();
 
                 for (int i = 0; i < childrens.size(); i++) {
                     Element children = childrens.get(i);
@@ -88,13 +90,26 @@ public class MyClass {
                     }
                 }
 
-                List<Map<String, String>> hotTuiJian = getHotTuiJian(elementList.get(0));
-                print("--------------------------------------------------------------------------------");
-                List<Map<String, String>> newDieSHangJia = getNewDieSHangJia(elementList.get(1));
-                print("--------------------------------------------------------------------------------");
-                List<Map<String, String>> bangDan = getBangDan(elementList.get(2));
 
-                return hotTuiJian;
+               List<Map<String, Object>> hotTuiJian = getHotTuiJian();
+                print("--------------------------------------------------------------------------------");
+                List<Map<String, Object>> newDieSHangJia = getNewDieSHangJia();
+                print("--------------------------------------------------------------------------------");
+                List<Map<String, Object>> bangDan = getBangDan();
+
+                print("--------------------------------------------------------------------------------");
+                List<Map<String, Object>> getbanner = discover.getbanner();
+
+
+                List<Object> all = new ArrayList<>();
+                all.add(hotTuiJian);
+                all.add(newDieSHangJia);
+                all.add(bangDan);
+                all.add(getbanner);
+
+
+
+                return all;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -104,19 +119,19 @@ public class MyClass {
         /*
         * Elements  children1 热门推荐
         * */
-        public static List<Map<String, String>> getHotTuiJian(Elements children1) {
+        public static List<Map<String, Object>> getHotTuiJian() {
 
             // print(children1.get(0).text());//获取热门推荐 的标题，tab选项
 
-            Element children = children1.parents().first();
-            Elements lis = children1.get(1).select("li");//获取热门推荐里面的详细列表li
+            Element children = elementList.get(0).parents().first();
+            Elements lis = elementList.get(0).get(1).select("li");//获取热门推荐里面的详细列表li
             // print("lis:"+lis);
 
-            List<Map<String, String>> mapList = new ArrayList<>();
+            List<Map<String, Object>> mapList = new ArrayList<>();
 
             for (int j = 0; j < lis.size(); j++) {//获取热门推荐里面的详细列表li
 
-                Map<String, String> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<>();
 
                 print("-------------------------获取%s里面的详细列表" + j, children.className());
                 String src = lis.get(j).select("img").attr("src");//根据每一个li获取图片链接
@@ -139,15 +154,15 @@ public class MyClass {
         /*
        * Elements  children1 新碟上架
        * */
-        public static List<Map<String, String>> getNewDieSHangJia(Elements children1) {
-
+        public static List<Map<String, Object>> getNewDieSHangJia() {
+            Elements children1=elementList.get(1);
             // print(children1.get(0).text());//获取热门推荐 的标题，tab选项
 
             Element children = children1.parents().first();
             Elements lis = children1.get(1).select("li");//获取热门推荐里面的详细列表li
-            List<Map<String, String>> mapList = new ArrayList<>();
+            List<Map<String, Object>> mapList = new ArrayList<>();
             for (int j = 0; j < lis.size(); j++) {//获取热门推荐里面的详细列表li
-                Map<String, String> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<>();
                 print("-------------------------获取%s里面的详细列表" + j, children.className());
                 String src = lis.get(j).select("img").attr("data-src");//根据每一个li获取图片链接
                 print("图片:" + src);
@@ -165,6 +180,7 @@ public class MyClass {
                 print("歌手名字：" + auther.text());//根据每一个li获取播放次数
                 map.put("author_url", auther.attr("abs:href"));
                 map.put("author", auther.text());
+                mapList.add(map);
             }
             return mapList;
         }
@@ -172,18 +188,18 @@ public class MyClass {
         /*
         *排行榜
          */
-        public static List<Map<String, String>> getBangDan(Elements children1) {
-
+        public static List<Map<String, Object>> getBangDan() {
+            Elements children1=elementList.get(2);
             // print(children1.get(0).text());//获取热门推荐 的标题，tab选项
 
             Element children = children1.parents().first();
             print("-------------------------获取%s里面的详细列表", children.className());
-            List<Map<String, String>> mapList = new ArrayList<>();
+            List<Map<String, Object>> mapList = new ArrayList<>();
             Element lis = children1.get(1).getElementsByClass("n-bilst").first();
             Elements children2 = lis.children();
             for (int j = 0; j < children2.size(); j++) {//获取榜单里面的分类
                 print("\n");
-                Map<String, String> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<>();
                 Element child1 = children2.get(j).child(0);//名称图片
                 Element child2 = children2.get(j).child(1);//具体歌曲
 
@@ -214,9 +230,9 @@ public class MyClass {
 
 
         /*
-        *根据id获取音乐
+        *根据id 或 关键字 获取音乐
          */
-        public static String getByEncSecKey(MyAES.getWhat getWhat, String id) {//id ="479979010"
+        public static String getMusicByKeyWord(MyAES.getWhat getWhat, String id) {//id ="479979010"
             try {
                 // 1. 创建URL对象
                 URL url = null;
@@ -279,7 +295,7 @@ public class MyClass {
         /*
                 *获取轮播图
                  */
-        public static void getbanner() {
+        public static List<Map<String, Object>> getbanner() {
             try {
 
                 Document doc = Jsoup.connect("http://music.163.com/discover").get();
@@ -290,8 +306,10 @@ public class MyClass {
                 String substring = script.get(2).html().substring(lenth);
 
                 JSONArray jsonArra = new JSONArray(substring);
-
+                List<Map<String, Object>> mapList = new ArrayList<>();
                 for (int i = 0; i < jsonArra.length(); i++) {
+                    print("%s%s", "getbanner====================================",i);
+
                     JSONObject o = (JSONObject) jsonArra.get(i);
                     String picUrl = o.getString("picUrl");
                     String url = o.getString("url");
@@ -300,14 +318,19 @@ public class MyClass {
                     if (!targetId.equals("0")) {
                         url = "http://music.163.com" + url;
                     }
+                    Map<String, Object> map = new HashMap<>();
                     print("picurl:%s", picUrl);
                     print("url:%s", url);
+                    map.put("pic",picUrl);
+                    map.put("url",url);
+                    mapList.add(map);
                 }
 
-
+                return mapList;
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return null;
         }
 
     }

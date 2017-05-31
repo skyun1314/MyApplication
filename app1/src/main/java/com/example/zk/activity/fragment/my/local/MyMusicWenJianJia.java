@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import com.example.zk.activity.Data;
 import com.example.zk.activity.Music;
 import com.example.zk.activity.R;
 
@@ -38,9 +37,6 @@ public class MyMusicWenJianJia extends Fragment {
         ListView listView = (ListView) inflate.findViewById(R.id.fragment_my_music_local_list_listview);
 
         String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String files[]={sdcardPath + "/qqmusic/song/",sdcardPath + "/netease/cloudmusic/music/", Data.APP_FILE_PATH};
-
-
 
         BaseAdapter adapter = new MyImgAdapter(getContext(), Music.MusicUtil.getMusicDirs(getContext()));
         listView.setAdapter(adapter);
