@@ -45,7 +45,7 @@ public class MyClass {
 
         Message message1 = MyMusic.handler.obtainMessage();
         message1.obj= newDieSHangJia;
-        //message1.sendToTarget();
+        message1.sendToTarget();
 
 
     }

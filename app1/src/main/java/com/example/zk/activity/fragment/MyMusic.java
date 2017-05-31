@@ -66,9 +66,9 @@ public class MyMusic extends Fragment {
                 List<Map<String, Object>> new1 = (List<Map<String, Object>>) msg.obj;
 
 
-                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, (Bitmap) new1.get(1).get("pic"), (String) new1.get(1).get("title"), (String) new1.get(1).get("author"), ids1);
-                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, (Bitmap) new1.get(2).get("pic"), (String) new1.get(2).get("title"), (String) new1.get(2).get("author"), ids1);
-                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3, (Bitmap) new1.get(3).get("pic"), (String) new1.get(3).get("title"), (String) new1.get(3).get("author"), ids1);
+                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, new1.get(0), ids1);
+                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, new1.get(1), ids1);
+                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3, new1.get(2), ids1);
 
 
                 return false;
@@ -101,17 +101,16 @@ public class MyMusic extends Fragment {
 
     }
 
-    public void setHot(int itme_layout, int itme_layout2, Bitmap nIcon, String nName, String nNum, int ids[]) {
+    public void setHot(int itme_layout, int itme_layout2, Map<String, Object>new1,int ids[]) {
         LinearLayout layout1 = (LinearLayout) inflate.findViewById(itme_layout);
         RelativeLayout layout = (RelativeLayout) layout1.findViewById(itme_layout2);
-
 
         ImageView icon = (ImageView) layout.findViewById(ids[0]);
         TextView name = (TextView) layout.findViewById(ids[1]);
         TextView num = (TextView) layout.findViewById(ids[2]);
-        icon.setImageBitmap(nIcon);
-        name.setText(nName);
-        num.setText(nNum);
+        icon.setImageBitmap((Bitmap) new1.get("pic"));
+        name.setText((String) new1.get("title"));
+        num.setText((String) new1.get("author"));
 
     }
 

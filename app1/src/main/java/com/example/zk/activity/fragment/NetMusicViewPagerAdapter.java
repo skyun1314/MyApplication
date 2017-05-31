@@ -29,7 +29,6 @@ class NetMusicViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageC
     private int currentPosition = 0;
 
     protected Activity mContext;
-    // protected ArrayList<View> views = new ArrayList<>();
     protected List<Bitmap> views = new ArrayList<>();
     protected ViewPager mViewPager;
 
