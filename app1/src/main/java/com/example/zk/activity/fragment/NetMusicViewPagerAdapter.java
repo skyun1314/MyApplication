@@ -2,6 +2,7 @@ package com.example.zk.activity.fragment;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.zk.activity.R;
+import com.example.zk.activity.fragment.net.Banner;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.LoopPagerAdapter;
 
@@ -27,6 +29,8 @@ public class NetMusicViewPagerAdapter extends LoopPagerAdapter {
 
     List<Bitmap> bitmaps=new ArrayList<>();
     Activity Myactivity;
+    private List<String> urls;
+
     public NetMusicViewPagerAdapter(RollPagerView viewPager,Activity activity) {
         super(viewPager);
         Myactivity=activity;
@@ -38,15 +42,22 @@ public class NetMusicViewPagerAdapter extends LoopPagerAdapter {
     }
 
     @Override
-    public View getView(ViewGroup container, int position) {
-
-
-
+    public View getView(ViewGroup container, final int position) {
 
         ImageView view = new ImageView(container.getContext());
         view.setScaleType(ImageView.ScaleType.CENTER_CROP);
         view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         view.setImageBitmap(bitmaps.get(position));
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Myactivity, Banner.class);
+                intent.putExtra("url",urls.get(position));
+                Myactivity.startActivity(intent);
+            }
+        });
+
         return view;
     }
 
@@ -58,10 +69,12 @@ public class NetMusicViewPagerAdapter extends LoopPagerAdapter {
     public void updataBitMap(List<Map<String, Object>> banner) {
 
         List<Bitmap> bitmaps=new ArrayList<>();
+        List<String> url=new ArrayList<>();
         for (int i = 0; i < banner.size(); i++) {
-
+            url.add((String) banner.get(i).get("url"));
             bitmaps.add((Bitmap) banner.get(i).get("pic"));
         }
+        this.urls=url;
         this.bitmaps=bitmaps;
         notifyDataSetChanged();
 
