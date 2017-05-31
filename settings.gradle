@@ -1,1 +1,1 @@
-include ':app1', ':remusic', ':javatest', ':webview'
+include ':app1', ':remusic', ':javatest', ':webview', ':rollviewpagerdome', ':rollviewpager'

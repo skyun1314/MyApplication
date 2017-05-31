@@ -24,7 +24,6 @@ public class QuickControlsFragment extends Fragment {
 
 
          music_auther = (TextView) rootView.findViewById(R.id.buttom_music_info_music_auther);
-        Data.showMyLog(music_name.toString());
         return rootView;
     }
 

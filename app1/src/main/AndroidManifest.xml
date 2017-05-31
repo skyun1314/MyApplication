@@ -71,6 +71,7 @@
             android:name=".fragment.net.MV"
             android:label="MV"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".fragment.net.Banner"/>
         <activity
             android:name=".fragment.net.Paihang"
             android:label="Paihang"

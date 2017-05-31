@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +22,7 @@ import com.example.zk.activity.fragment.net.FengLei;
 import com.example.zk.activity.fragment.net.Geshou;
 import com.example.zk.activity.fragment.net.MV;
 import com.example.zk.activity.fragment.net.Paihang;
+import com.jude.rollviewpager.RollPagerView;
 
 import java.util.List;
 import java.util.Map;
@@ -109,11 +109,13 @@ public class NetMusic extends Fragment {
 
     private void viewPagerInit(View inflate) {
 
-        final ViewPager viewPager = (ViewPager) inflate.findViewById(R.id.fragment_net_music_viewpager);
+        /*final ViewPager viewPager = (ViewPager) inflate.findViewById(R.id.fragment_net_music_viewpager);
 
         pagerAdapter = new NetMusicViewPagerAdapter(inflate, getActivity(), viewPager);
-
-
+*/
+        RollPagerView  mViewPager = (RollPagerView) inflate.findViewById(R.id.view_pager);
+        pagerAdapter = new NetMusicViewPagerAdapter(mViewPager, getActivity());
+        mViewPager.setAdapter(pagerAdapter);
     }
 
 

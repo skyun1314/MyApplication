@@ -23,7 +23,7 @@ public class WYYAPI {
     public static void main(String[] args) {
 
         // discover.getMusicById("479979010");
-        //discover.instans();
+        discover.instans();
 
        //discover.getMusicByKeyWord(MyAES.getWhat.getMusicByid,"479979010");
    //    discover.getMusicByKeyWord(MyAES.getWhat.getMusicByKeyWord,"479979010");

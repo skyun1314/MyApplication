@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/app1/app1.iml" filepath="$PROJECT_DIR$/app1/app1.iml" />
       <module fileurl="file://$PROJECT_DIR$/javatest/javatest.iml" filepath="$PROJECT_DIR$/javatest/javatest.iml" />
       <module fileurl="file://$PROJECT_DIR$/remusic/remusic.iml" filepath="$PROJECT_DIR$/remusic/remusic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rollviewpager/rollviewpager.iml" filepath="$PROJECT_DIR$/rollviewpager/rollviewpager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rollviewpagerdome/rollviewpagerdome.iml" filepath="$PROJECT_DIR$/rollviewpagerdome/rollviewpagerdome.iml" />
       <module fileurl="file://$PROJECT_DIR$/webview/webview.iml" filepath="$PROJECT_DIR$/webview/webview.iml" />
     </modules>
   </component>
