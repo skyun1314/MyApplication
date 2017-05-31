@@ -50,7 +50,7 @@ public class DowloadMusic extends AppCompatActivity {
 
 
 
-              //      Music.setMusic((String) music.getUrl(),quickcontrolsfragment1);
+              //      Music.setMusic((String) music.getUrl());
                 }
             });
         }

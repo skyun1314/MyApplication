@@ -32,7 +32,7 @@ public class LocalMusic extends BaseActivity {
 
         //页面，数据源
         List<Fragment> list = new ArrayList<>();
-        list.add(new MyMusicDanQu());
+        list.add(new MyMusicDanQu( quickcontrolsfragment1));
         list.add(new MyMusicGeShou());
         list.add(new MyMusicZhuanJi());
         list.add(new MyMusicWenJianJia());
@@ -45,9 +45,6 @@ public class LocalMusic extends BaseActivity {
         //绑定
         tabLayout.setupWithViewPager(viewPager);
     }
-
-
-
 
 
 

@@ -5,38 +5,45 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 public class QuickControlsFragment extends Fragment {
-
+     TextView music_name;
+     TextView music_auther;
     private static QuickControlsFragment fragment;
-    static View rootView;
+
+    public static QuickControlsFragment newInstance() {
+        return new QuickControlsFragment();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-         rootView = inflater.inflate(R.layout.buttom_music_info, container, false);
+        View  rootView = inflater.inflate(R.layout.buttom_music_info, container, false);
+         music_name = (TextView) rootView.findViewById(R.id.buttom_music_info_music_name);
 
 
+         music_auther = (TextView) rootView.findViewById(R.id.buttom_music_info_music_auther);
+        Data.showMyLog(music_name.toString());
         return rootView;
     }
 
 
-    public static void update(){
-        /*TextView music_name = (TextView) rootView.findViewById(R.id.buttom_music_info_music_name);
-        music_name.setText();
-
-        TextView music_name = (TextView) rootView.findViewById(R.id.buttom_music_info_music_auther);
-        music_name.setText();*/
+    public  void update(){
+        Data.showMyLog(music_name.toString());
+        music_auther.setText(Music.MusicUtil.theWholeMusic.getSinger());
+        music_name.setText(Music.MusicUtil.theWholeMusic.getTitle());
     }
 
 
-    public static QuickControlsFragment newInstance() {
-
-        if (fragment==null){
-            fragment =new QuickControlsFragment();
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (Music.MusicUtil.theWholeMusic!=null){
+            music_name.setText(Music.MusicUtil.theWholeMusic.getTitle());
+            music_auther.setText(Music.MusicUtil.theWholeMusic.getSinger());
         }
 
-        return fragment;
     }
 
 }

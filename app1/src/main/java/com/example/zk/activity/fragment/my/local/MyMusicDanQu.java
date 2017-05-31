@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import com.example.zk.activity.Music;
+import com.example.zk.activity.QuickControlsFragment;
 import com.example.zk.activity.R;
 
 import java.util.List;
@@ -19,7 +20,10 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class MyMusicDanQu extends Fragment {
-
+    QuickControlsFragment quickcontrolsfragment1;
+    public MyMusicDanQu(QuickControlsFragment quickcontrolsfragment1) {
+        this.quickcontrolsfragment1=quickcontrolsfragment1;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,7 +60,7 @@ public class MyMusicDanQu extends Fragment {
                 @Override
                 public void onClick(View v) {
 
-                    Music.MusicUtil.setMusic(music.getUrl());
+                    Music.MusicUtil.setMusic(music,quickcontrolsfragment1);
                 }
             });
 

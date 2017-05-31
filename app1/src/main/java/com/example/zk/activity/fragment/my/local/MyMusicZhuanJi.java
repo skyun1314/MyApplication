@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.zk.activity.Data;
 import com.example.zk.activity.Music;
 import com.example.zk.activity.R;
 
@@ -37,6 +38,9 @@ public class MyMusicZhuanJi extends Fragment {
         listView.setAdapter(adapter);
         return inflate;
     }
+
+
+
     class MyImgAdapter extends MyMusicListAdapter {
 
         public MyImgAdapter(Context context, List<Map<String, Object>> musics) {
@@ -65,6 +69,7 @@ public class MyMusicZhuanJi extends Fragment {
             });
         }
     }
+
 
 
 }

@@ -52,8 +52,8 @@ public class MyMusicDanQu1 extends BaseActivity {
                 public void onClick(View v) {
 
 
+                    Music.MusicUtil.setMusic(music, quickcontrolsfragment1);
 
-                    Music.MusicUtil.setMusic((String) music.getUrl(),quickcontrolsfragment1);
                 }
             });
         }

@@ -547,13 +547,16 @@ public class Music implements Serializable {
         }
 
         static MediaPlayer mPlayer = new MediaPlayer();
-
-        public static void setMusic(String musicNmae, QuickControlsFragment quickcontrolsfragment1) {
+        static Music theWholeMusic;
+        public static void setMusic(Music music,QuickControlsFragment quickcontrolsfragment1) {
             try {
                 mPlayer.reset();
-                mPlayer.setDataSource(musicNmae);
+                mPlayer.setDataSource(music.getUrl());
+                theWholeMusic=music;
+                quickcontrolsfragment1.update();
                 mPlayer.prepare();
                 mPlayer.start();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
