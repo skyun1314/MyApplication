@@ -1,7 +1,7 @@
 package com.skyun.music.activity.my.local;
 
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.zk.activity.R;
+import com.skyun.music.activity.QuickControlsFragment;
 import com.skyun.music.adapter.MyMusicListAdapter;
 import com.skyun.music.mode.Music;
-import com.skyun.music.activity.QuickControlsFragment;
-import com.example.zk.activity.R;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class MyMusicDanQu extends Fragment {
         ListView listView= (ListView) inflate.findViewById(R.id.fragment_my_music_local_list_listview);
 
 
-        BaseAdapter adapter=new MyImgAdapter(getContext(), Music.MusicUtil.getAllMusic(getContext()));
+        BaseAdapter adapter=new MyImgAdapter(getActivity(), Music.MusicUtil.getAllMusic(getContext()));
         listView.setAdapter(adapter);
         return inflate;
     }
@@ -46,12 +46,12 @@ public class MyMusicDanQu extends Fragment {
     class MyImgAdapter extends MyMusicListAdapter {
 
 
-        public MyImgAdapter(Context context, List<Music> musics) {
+        public MyImgAdapter(Activity context, List<Music> musics) {
             super(context, musics);
         }
 
         @Override
-        public void setView(int position, ViewHolder holder, View convertView) {
+        public void setView(final int position, ViewHolder holder, View convertView) {
             final Music music = (Music) musics.get(position);
             holder.img.setImageBitmap(music.getBitmap());
             holder.title.setText(music.getTitle());
@@ -61,7 +61,7 @@ public class MyMusicDanQu extends Fragment {
                 @Override
                 public void onClick(View v) {
 
-                    Music.MusicUtil.setMusic(music,quickcontrolsfragment1);
+                    Music.MusicUtil.setMusic(musics,position,quickcontrolsfragment1);
                 }
             });
 

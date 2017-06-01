@@ -1,16 +1,16 @@
 package com.skyun.music.activity.my;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.zk.activity.R;
 import com.skyun.music.activity.BaseActivity;
+import com.skyun.music.adapter.MyMusicListAdapter;
 import com.skyun.music.mode.Data;
 import com.skyun.music.mode.Music;
-import com.example.zk.activity.R;
-import com.skyun.music.adapter.MyMusicListAdapter;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class DowloadMusic extends BaseActivity {
     }
     class MyImgAdapter extends MyMusicListAdapter {
 
-        public MyImgAdapter(Context context, List<Music> musics) {
+        public MyImgAdapter(Activity context, List<Music> musics) {
             super(context, musics);
         }
 
@@ -50,7 +50,7 @@ public class DowloadMusic extends BaseActivity {
 
 
 
-                    Music.MusicUtil.setMusic(music,quickcontrolsfragment1);
+                    Music.MusicUtil.setMusic(musics,position,quickcontrolsfragment1);
                 }
             });
         }

@@ -1,7 +1,7 @@
 package com.skyun.music.activity.my.local;
 
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,10 +10,10 @@ import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.zk.activity.R;
 import com.skyun.music.activity.BaseActivity;
 import com.skyun.music.adapter.MyMusicListAdapter;
 import com.skyun.music.mode.Music;
-import com.example.zk.activity.R;
 
 import java.util.List;
 
@@ -38,12 +38,12 @@ public class MyMusicDanQu1 extends BaseActivity {
     class MyImgAdapter extends MyMusicListAdapter {
 
 
-        public MyImgAdapter(Context context, List<Music> musics) {
+        public MyImgAdapter(Activity context, List<Music> musics) {
             super(context, musics);
         }
 
         @Override
-        public void setView(int position, ViewHolder holder, View convertView) {
+        public void setView(final int position, ViewHolder holder, View convertView) {
             final Music music = (Music) musics.get(position);
             // holder.img.setImageBitmap(music.get(""));
             holder.title.setText((CharSequence) music.getTitle());
@@ -53,7 +53,7 @@ public class MyMusicDanQu1 extends BaseActivity {
                 public void onClick(View v) {
 
 
-                    Music.MusicUtil.setMusic(music, quickcontrolsfragment1);
+                    Music.MusicUtil.setMusic(musics,position, quickcontrolsfragment1);
 
                 }
             });

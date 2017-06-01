@@ -51,15 +51,19 @@
                     android:layout_marginTop="60dp"
                     android:layout_centerHorizontal="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/play_disc_halo" />
+                    android:src="@drawable/play_disc_halo"
+                    android:id="@+id/imageView" />
 
                 <com.jude.rollviewpager.RollPagerView
                     android:id="@+id/view_pager"
                     android:layout_width="match_parent"
                     android:layout_height="263dp"
                     android:layout_marginTop="60dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_alignLeft="@+id/imageView"
+                    android:layout_alignStart="@+id/imageView"
+                    android:layout_alignRight="@+id/imageView"
+                    android:layout_alignEnd="@+id/imageView" />
 
                 <View
                     android:id="@+id/view_line"

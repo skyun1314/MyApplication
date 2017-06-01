@@ -1,4 +1,4 @@
-package com.skyun.music.activity;
+package com.skyun.music.adapter;
 
 
 import android.app.Activity;

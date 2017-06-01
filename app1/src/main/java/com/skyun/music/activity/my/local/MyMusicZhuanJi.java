@@ -1,7 +1,7 @@
 package com.skyun.music.activity.my.local;
 
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.zk.activity.R;
 import com.skyun.music.adapter.MyMusicListAdapter;
 import com.skyun.music.mode.Music;
-import com.example.zk.activity.R;
 
 import java.io.Serializable;
 import java.util.List;
@@ -34,7 +34,7 @@ public class MyMusicZhuanJi extends Fragment {
         ListView listView = (ListView) inflate.findViewById(R.id.fragment_my_music_local_list_listview);
 
 
-        BaseAdapter adapter = new MyImgAdapter(getContext(), Music.MusicUtil.getAllAlbums(getContext()));
+        BaseAdapter adapter = new MyImgAdapter(getActivity(), Music.MusicUtil.getAllAlbums(getContext()));
         listView.setAdapter(adapter);
         return inflate;
     }
@@ -43,7 +43,7 @@ public class MyMusicZhuanJi extends Fragment {
 
     class MyImgAdapter extends MyMusicListAdapter {
 
-        public MyImgAdapter(Context context, List<Map<String, Object>> musics) {
+        public MyImgAdapter(Activity context, List<Map<String, Object>> musics) {
             super(context, musics);
         }
 

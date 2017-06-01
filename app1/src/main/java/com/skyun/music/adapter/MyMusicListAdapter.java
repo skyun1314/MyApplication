@@ -1,6 +1,6 @@
 package com.skyun.music.adapter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +19,9 @@ import java.util.List;
 public abstract class MyMusicListAdapter<T> extends BaseAdapter {
 
         public List<T> musics;
-        public Context context;//用于接收传递过来的Context对象
+        public Activity context;//用于接收传递过来的Context对象
         private LayoutInflater mInflater = null;
-        public MyMusicListAdapter(Context context,List<T> musics) {
+        public MyMusicListAdapter(Activity context,List<T> musics) {
             super();
             this.context = context;
             this.musics=musics;

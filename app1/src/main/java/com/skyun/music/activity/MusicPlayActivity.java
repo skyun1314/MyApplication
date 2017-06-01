@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.zk.activity.R;
 import com.jude.rollviewpager.RollPagerView;
@@ -26,6 +27,9 @@ public class MusicPlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_music_play);
 
 
+        final ImageView imageView= (ImageView) findViewById(R.id.albumArt);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             toolbar.setTitle("");
             setSupportActionBar(toolbar);
@@ -38,6 +42,24 @@ public class MusicPlayActivity extends AppCompatActivity {
                     onBackPressed();
                 }
             });
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bitmap = BitmapFactory.decodeResource(MusicPlayActivity.this.getResources(), R.mipmap.hotmusic);
+
+              //  final Bitmap newBitmap = StackBlur.blur(bitmap, 20, false);
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                     //   imageView.setImageBitmap(newBitmap);
+                    }
+                });
+
+            }
+        }).start();
 
 
         RollPagerView mViewPager = (RollPagerView) findViewById(R.id.view_pager);
@@ -75,7 +97,13 @@ public class MusicPlayActivity extends AppCompatActivity {
         @Override
         public View getView(ViewGroup container, final int position) {
             MyCycleView cycleView=new MyCycleView(Myactivity);
-            cycleView.reSetBitMap(bitmaps.get(position));
+            Bitmap bitmap = bitmaps.get(position);
+
+            cycleView.reSetBitMap(bitmap);
+
+
+
+
             return cycleView;
         }
 
@@ -85,5 +113,6 @@ public class MusicPlayActivity extends AppCompatActivity {
         }
 
     }
+
 
 }

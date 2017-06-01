@@ -3,6 +3,7 @@ package com.skyun.music.util.wyyapi;
 import android.graphics.Bitmap;
 import android.os.Message;
 
+import com.skyun.music.activity.FindMusic;
 import com.skyun.music.mode.Data;
 import com.skyun.music.activity.MyMusic;
 import com.skyun.music.activity.NetMusic;
@@ -28,6 +29,12 @@ public class MyClass {
         List<Map<String, Object>> banner = (List<Map<String, Object>>) instans.get(3);
 
 
+        String s1 = BMA.Radio.recommendRadioList(10);
+        Data.showMyLog("recommendRadioList:"+s1);
+
+        String s2 = BMA.Billboard.billCategory();
+        Data.showMyLog("billCategory:"+s2);
+
         String s = BMA.focusPic(10);
         Data.showMyLog("bdmusic:"+s);
 
@@ -52,6 +59,9 @@ public class MyClass {
         message1.obj= newDieSHangJia;
         message1.sendToTarget();
 
+        Message message2 = FindMusic.handler.obtainMessage();
+        message2.obj= bangDan;
+        message2.sendToTarget();
 
     }
 

@@ -29,13 +29,14 @@ public class MyAES {
             System.out.print("Key长度不是16位");
             return null;
         }
-        byte[] raw = sKey.getBytes();
+        byte[] raw = sKey.getBytes("UTF-8");
         SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");//"算法/模式/补码方式"
-        IvParameterSpec iv = new IvParameterSpec("0102030405060708".getBytes());//使用CBC模式，需要一个向量iv，可增加加密算法的强度
+        IvParameterSpec iv = new IvParameterSpec("0102030405060708".getBytes("UTF-8"));//使用CBC模式，需要一个向量iv，可增加加密算法的强度
         cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
-        byte[] encrypted = cipher.doFinal(sSrc.getBytes());
+        byte[] encrypted = cipher.doFinal(sSrc.getBytes("UTF-8"));
 
+       // return new String(Base64.getEncoder().encode(encrypted));//此处使用BAES64做转码功能，同时能起到2次加密的作用。
         return new BASE64Encoder().encode(encrypted);//此处使用BASE64做转码功能，同时能起到2次加密的作用。
     }
 
@@ -52,12 +53,13 @@ public class MyAES {
                 System.out.print("Key长度不是16位");
                 return null;
             }
-            byte[] raw = sKey.getBytes("UTF-8");
+            byte[] raw = sKey.getBytes("ASCII");
             SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             IvParameterSpec iv = new IvParameterSpec("0102030405060708"
                     .getBytes());
             cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
+            //byte[] encrypted1 = Base64.getDecoder().decode(sSrc);//先用bAES64解密
             byte[] encrypted1 = new BASE64Decoder().decodeBuffer(sSrc);//先用base64解密
             try {
                 byte[] original = cipher.doFinal(encrypted1);
@@ -105,7 +107,7 @@ public class MyAES {
             case getMusicByKeyWord:
 
 
-                first_param="{\"hlpretag\":\"<span class=\\\\\"s-fc7\\\\\">\",\"hlposttag\":\"</span>\",\"s\":\"" + args+
+                first_param="{\"hlpretag\":\"<span class=\\\"s-fc7\\\">\",\"hlposttag\":\"</span>\",\"s\":\"" + args+
                         "\",\"type\":\"1\",\"offset\":\"0\",\"total\":\"true\",\"limit\":\"30\",\"csrf_token\":\"\"}";
 
                 break;

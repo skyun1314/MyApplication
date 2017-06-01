@@ -23,6 +23,7 @@ import com.skyun.music.activity.net.Geshou;
 import com.skyun.music.activity.net.MV;
 import com.skyun.music.activity.net.Paihang;
 import com.jude.rollviewpager.RollPagerView;
+import com.skyun.music.adapter.NetMusicViewPagerAdapter;
 
 import java.util.List;
 import java.util.Map;

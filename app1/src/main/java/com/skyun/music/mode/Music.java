@@ -550,12 +550,18 @@ public class Music implements Serializable {
         }
 
         static MediaPlayer mPlayer = new MediaPlayer();
-        public static Music theWholeMusic;
-        public static void setMusic(Music music,QuickControlsFragment quickcontrolsfragment1) {
+      //  public static Music theWholeMusic;
+      public static List<Music> theWholeMusic;
+      public static int theWholeMusicIndex;
+        public static void setMusic(List<Music> music,int index,QuickControlsFragment quickcontrolsfragment1) {
             try {
+
+
+                theWholeMusic=getNewList(music,index);
+                theWholeMusicIndex=0;
                 mPlayer.reset();
-                mPlayer.setDataSource(music.getUrl());
-                theWholeMusic=music;
+                mPlayer.setDataSource(theWholeMusic.get(0).getUrl());
+                //theWholeMusic=music;
                 quickcontrolsfragment1.update();
                 mPlayer.prepare();
                 mPlayer.start();
@@ -564,6 +570,25 @@ public class Music implements Serializable {
                 e.printStackTrace();
             }
         }
+
+
+        public static List getNewList(List list,int index){
+            List nNewList=new ArrayList<>();
+
+            int xx;
+            for (int i = 0; i < list.size(); i++) {
+
+                if (index+i<list.size()){
+                    xx=index+i;
+                }else{
+                    xx=index+i-list.size();
+                }
+
+                nNewList.add(list.get(xx));
+            }
+            return nNewList;
+        }
+
 
 
         public static void playOrPaus() {

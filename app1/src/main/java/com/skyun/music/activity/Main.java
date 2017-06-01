@@ -42,7 +42,7 @@ public class Main extends BaseActivity
         List<Fragment> list = new ArrayList<>();
         list.add(new MyMusic());
         list.add(new NetMusic());
-        list.add(new FindMusic());
+        list.add(new FindMusic(quickcontrolsfragment1));
         String[] mTitles = new String[]{"我的", "音乐馆", "发现"};
 
         viewPager.setOffscreenPageLimit(2);

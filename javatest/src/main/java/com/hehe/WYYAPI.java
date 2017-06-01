@@ -23,16 +23,22 @@ public class WYYAPI {
     public static void main(String[] args) {
 
         // discover.getMusicById("479979010");
-        discover.instans();
+        //discover.instans();
 
-       //discover.getMusicByKeyWord(MyAES.getWhat.getMusicByid,"479979010");
-   //    discover.getMusicByKeyWord(MyAES.getWhat.getMusicByKeyWord,"479979010");
+      // discover.getMusicByKeyWord(MyAES.getWhat.getMusicByid,"479979010");
+     //  discover.getMusicByKeyWord(MyAES.getWhat.getMusicByKeyWord,"479979010");
+
+
     }
+
 
 
     // 封装一个多参数的输出函数
     private static void print(String msg, Object... args) {
         System.out.println(String.format(msg, args));
+
+
+
     }
 
     /*
@@ -215,13 +221,20 @@ public class WYYAPI {
                 map.put("pic", picAndName.attr("data-src"));
                 print("--------------%s列表：\n", a.attr("title"));
                 Elements li = child2.select("li");
+
+
+                List<Map<String, Object>> musicList = new ArrayList<>();
                 for (int i = 0; i < li.size(); i++) {
+                    Map<String, Object> music = new HashMap<>();
                     Element a1 = li.get(i).select("a").first();
                     print("歌曲名称：" + a1.attr("title"));
                     print("歌曲链接：" + a1.attr("abs:href"));
-
+                    music.put("musicname", a1.attr("title"));
+                    music.put("musicurl", a1.attr("abs:href"));
+                    musicList.add(music);
                 }
-
+                map.put("music",musicList);
+                mapList.add(map);
             }
             return mapList;
         }
