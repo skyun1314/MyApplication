@@ -1,6 +1,7 @@
 package com.skyun.music.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -8,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.zk.activity.R;
@@ -96,14 +96,20 @@ public class QuickControlsFragment extends Fragment {
 
         @Override
         public View getView(ViewGroup container, final int position) {
+             LayoutInflater mInflater  = LayoutInflater.from(Myactivity);;
+            View convertView = mInflater.inflate(R.layout.fragment_my_music_local_list_item, null);
 
-            ImageView view = new ImageView(container.getContext());
-            view.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            view.setImageBitmap(bitmaps.get(position));
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   // activity_playing
 
+                    Intent intent=new Intent(Myactivity, MusicPlayActivity.class);
+                    Myactivity.startActivity(intent);
 
-            return view;
+                }
+            });
+            return convertView;
         }
 
         @Override

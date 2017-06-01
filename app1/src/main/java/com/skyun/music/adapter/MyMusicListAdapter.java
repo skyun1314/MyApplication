@@ -1,4 +1,4 @@
-package com.skyun.music.activity.my.local;
+package com.skyun.music.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zk.activity">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,62 +27,60 @@
         <activity
             android:name="com.skyun.music.activity.my.LocalMusic"
             android:label="LocalMusic"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.my.BuyMusic"
             android:label="BuyMusic"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.my.local.MyMusicDanQu1"
             android:label="MyMusicDanQu1"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.my.DowloadMusic"
             android:label="DowloadMusic"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.my.LikeMusic"
             android:label="LikeMusic"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.my.MVMusic"
             android:label="MVMusic"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.my.RecentMusic"
             android:label="RecentMusic"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.net.FengLei"
             android:label="FengLei"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.net.DianTai"
             android:label="DianTai"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.net.Geshou"
             android:label="Geshou"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.net.MV"
             android:label="MV"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.skyun.music.activity.net.Banner"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.skyun.music.activity.net.Banner" />
         <activity
             android:name="com.skyun.music.activity.net.Paihang"
             android:label="Paihang"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.skyun.music.activity.net.ShuZi"
             android:label="ShuZi"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.skyun.music.activity.BaseActivity" />
+        <activity android:name="com.skyun.music.activity.MusicPlayActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

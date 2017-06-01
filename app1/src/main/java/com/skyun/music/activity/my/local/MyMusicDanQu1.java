@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import com.skyun.music.activity.BaseActivity;
+import com.skyun.music.adapter.MyMusicListAdapter;
 import com.skyun.music.mode.Music;
 import com.example.zk.activity.R;
 

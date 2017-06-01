@@ -37,27 +37,6 @@
 
 
 
-    <LinearLayout
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/buttom_music_info_play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu_camera" />
-
-        <ImageView
-            android:id="@+id/buttom_music_info_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-
-            android:src="@drawable/ic_menu_camera" />
-    </LinearLayout>
-
 
 
 

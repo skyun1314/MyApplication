@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.skyun.music.adapter.MyMusicListAdapter;
 import com.skyun.music.mode.Music;
 import com.skyun.music.activity.QuickControlsFragment;
 import com.example.zk.activity.R;
@@ -42,7 +43,7 @@ public class MyMusicDanQu extends Fragment {
 
 
 
-    class MyImgAdapter extends MyMusicListAdapter{
+    class MyImgAdapter extends MyMusicListAdapter {
 
 
         public MyImgAdapter(Context context, List<Music> musics) {

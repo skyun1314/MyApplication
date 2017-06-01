@@ -10,7 +10,7 @@ import com.skyun.music.activity.BaseActivity;
 import com.skyun.music.mode.Data;
 import com.skyun.music.mode.Music;
 import com.example.zk.activity.R;
-import com.skyun.music.activity.my.local.MyMusicListAdapter;
+import com.skyun.music.adapter.MyMusicListAdapter;
 
 import java.util.List;
 
