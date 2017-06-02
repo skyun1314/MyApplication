@@ -44,6 +44,14 @@ public class MyCycleView extends View {
         }
     };
 
+
+    public void stop(){
+        mHandler.removeCallbacks(runnable);
+    }
+    public void start(){
+        mHandler.post(runnable);
+    }
+
     public MyCycleView(Context context) {
         super(context);
         initView();
@@ -63,7 +71,7 @@ public class MyCycleView extends View {
         //获取res的图片资源
         bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.hotmusic);
         //开始旋转
-        mHandler.post(runnable);
+      //  mHandler.post(runnable);
     }
 
 

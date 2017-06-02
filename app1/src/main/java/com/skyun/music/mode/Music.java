@@ -150,14 +150,14 @@ public class Music implements Serializable {
     }
 
 
-    public static class MusicUtil{
+    public static class MusicUtil {
 
 
         //获取专辑封面的Uri
         private static final Uri albumArtUri = Uri.parse("content://media/external/audio/albumart");
 
 
-        public static List<Music> getMuaicByRequir(Cursor cursor,String...filepath) {
+        public static List<Music> getMuaicByRequir(Cursor cursor, String... filepath) {
             if (null == cursor) {
                 return null;
             }
@@ -193,7 +193,7 @@ public class Music implements Serializable {
                 String url = cursor.getString(cursor
                         .getColumnIndex(MediaStore.Audio.Media.DATA));
 
-                if ((filepath!=null)&&(filepath.length==1)&&(!url.contains(filepath[0]))){
+                if ((filepath != null) && (filepath.length == 1) && (!url.contains(filepath[0]))) {
                     continue;
                 }
 
@@ -391,7 +391,7 @@ public class Music implements Serializable {
                     null, null, null, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
 
 
-            return getMuaicByRequir(cursor,path);
+            return getMuaicByRequir(cursor, path);
 
         }
 
@@ -549,46 +549,84 @@ public class Music implements Serializable {
             return bmp;
         }
 
-        static MediaPlayer mPlayer = new MediaPlayer();
-      //  public static Music theWholeMusic;
-      public static List<Music> theWholeMusic;
-      public static int theWholeMusicIndex;
-        public static void setMusic(List<Music> music,int index,QuickControlsFragment quickcontrolsfragment1) {
+
+        public static MediaPlayer mPlayer;
+        //  public static Music theWholeMusic;
+        public static List<Music> theWholeMusic;
+        public static int theWholeMusicIndex;
+        static QuickControlsFragment quickcontrolsfragment;
+
+
+        public static void playMusic() {
             try {
-
-
-                theWholeMusic=getNewList(music,index);
-                theWholeMusicIndex=0;
+                theWholeMusicIndex = 0;
                 mPlayer.reset();
                 mPlayer.setDataSource(theWholeMusic.get(0).getUrl());
-                //theWholeMusic=music;
-                quickcontrolsfragment1.update();
                 mPlayer.prepare();
                 mPlayer.start();
-
+                quickcontrolsfragment.update();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
 
-        public static List getNewList(List list,int index){
-            List nNewList=new ArrayList<>();
+        public static void setMusic(List<Music> music, int index, QuickControlsFragment quickcontrolsfragment1) {
+
+            quickcontrolsfragment = quickcontrolsfragment1;
+            theWholeMusic = getNewList(music, index);
+            playMusic();
+        }
+
+        static {
+            mPlayer = new MediaPlayer();
+            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+
+                    int index;
+                    if (theWholeMusicIndex + 1 >= theWholeMusic.size()) {
+                        index = 0;
+                    } else {
+                        index = theWholeMusicIndex + 1;
+                    }
+
+                    theWholeMusic = getNewList(theWholeMusic, index);
+                    playMusic();
+                }
+            });
+        }
+
+        public static void PlayByNum(int num) {
+
+            try {
+                theWholeMusicIndex=num;
+                mPlayer.reset();
+                mPlayer.setDataSource(theWholeMusic.get(theWholeMusicIndex).getUrl());
+                mPlayer.prepare();
+                mPlayer.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        public static List getNewList(List list, int index) {
+            List nNewList = new ArrayList<>();
 
             int xx;
             for (int i = 0; i < list.size(); i++) {
 
-                if (index+i<list.size()){
-                    xx=index+i;
-                }else{
-                    xx=index+i-list.size();
+                if (index + i < list.size()) {
+                    xx = index + i;
+                } else {
+                    xx = index + i - list.size();
                 }
 
                 nNewList.add(list.get(xx));
             }
             return nNewList;
         }
-
 
 
         public static void playOrPaus() {
@@ -609,10 +647,6 @@ public class Music implements Serializable {
             mPlayer.seekTo(duiation);
         }
     }
-
-
-
-
 
 
 }
