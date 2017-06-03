@@ -57,7 +57,7 @@ public class MyMusicGeShou extends Fragment {
                             Music.MusicUtil.getMusicInfo(context,
                                     MediaStore.Audio.Media.ARTIST_ID, (int) music.get("id") + "");
                     Intent intent = new Intent(getActivity(), MyMusicDanQu1.class);
-                    intent.putExtra("listMap", (Serializable) id);
+                    intent.putExtra(MyMusicDanQu1.class.getName(), (Serializable) id);
                     startActivity(intent);
 
                 }

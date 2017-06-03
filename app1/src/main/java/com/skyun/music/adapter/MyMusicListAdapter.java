@@ -46,6 +46,7 @@ public abstract class MyMusicListAdapter<T> extends BaseAdapter {
 
         public class ViewHolder
         {
+            public ImageView download;
             public ImageView img;
             public TextView title;
             public TextView info;
@@ -62,6 +63,7 @@ public abstract class MyMusicListAdapter<T> extends BaseAdapter {
                 holder.img = (ImageView)convertView.findViewById(R.id.fragment_my_music_local_list_item_icon);
                 holder.title = (TextView)convertView.findViewById(R.id.fragment_my_music_local_list_item_name);
                 holder.info = (TextView)convertView.findViewById(R.id.fragment_my_music_local_list_item_author);
+                holder.download = (ImageView)convertView.findViewById(R.id.fragment_my_music_local_list_item_play_download);
                 convertView.setTag(holder);
             }else
             {

@@ -30,7 +30,7 @@ public class MyMusicDanQu1 extends BaseActivity {
         ListView listView = (ListView) findViewById(R.id.fragment_my_music_local_list_listview);
 
         Intent intent = getIntent();
-        List<Music> list = (List<Music>) intent.getSerializableExtra("listMap");
+        List<Music> list = (List<Music>) intent.getSerializableExtra(MyMusicDanQu1.class.getName());
         BaseAdapter adapter = new MyImgAdapter(this, list);
         listView.setAdapter(adapter);
     }
@@ -45,8 +45,11 @@ public class MyMusicDanQu1 extends BaseActivity {
         @Override
         public void setView(final int position, ViewHolder holder, View convertView) {
             final Music music = (Music) musics.get(position);
+            if (music==null){
+                return;
+            }
             // holder.img.setImageBitmap(music.get(""));
-            holder.title.setText((CharSequence) music.getTitle());
+            holder.title.setText((CharSequence) music.getTitle()+"");
             holder.info.setText((CharSequence) music.getSinger());
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override

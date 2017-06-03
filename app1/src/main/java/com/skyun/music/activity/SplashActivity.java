@@ -28,7 +28,12 @@ public class SplashActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                MyClass.wangyiyun();
+
+                try {
+                    MyClass.wangyiyun();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
         ;
@@ -40,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         };
-        timer.schedule(task, 0);
+        timer.schedule(task, 2500);
 
 
        /* AssetManager manager = getAssets();

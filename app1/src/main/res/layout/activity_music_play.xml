@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lrc="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -40,6 +41,7 @@
             android:layout_marginTop="-6dp">
 
             <RelativeLayout
+                android:id="@+id/activity_music_play_RelativeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
@@ -110,21 +112,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/play_icn_speaker" />
 
-                <SeekBar
-                    android:id="@+id/volume_seek"
-                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="40dp"
-                    android:focusable="true"
-                    android:maxHeight="2dp"
-                    android:minHeight="2dp"
-                    android:progress="30"
-                    android:progressDrawable="@drawable/volume_seekbar"
-                    android:thumb="@drawable/play_volumebar_btn"
-                    android:thumbOffset="3.0dip" />
+
             </LinearLayout>
 
             <TextView
@@ -148,6 +136,20 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/volume_layout"
                 android:layout_marginTop="10dp" />-->
+
+
+            <com.skyun.music.util.LrcView
+                android:id="@+id/lrc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                lrc:animationDuration="1000"
+                lrc:currentTextColor="@android:color/holo_blue_dark"
+                lrc:dividerHeight="24dp"
+                lrc:normalTextColor="@android:color/white"
+                lrc:textSize="16sp" />
+
+
         </RelativeLayout>
 
         <LinearLayout

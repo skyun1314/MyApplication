@@ -15,29 +15,34 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.skyun.music.mode.Data;
-import com.skyun.music.mode.Music;
 import com.example.zk.activity.R;
 import com.skyun.music.activity.my.BuyMusic;
 import com.skyun.music.activity.my.DowloadMusic;
 import com.skyun.music.activity.my.LikeMusic;
 import com.skyun.music.activity.my.LocalMusic;
 import com.skyun.music.activity.my.MVMusic;
-import com.skyun.music.activity.my.RecentMusic;
+import com.skyun.music.activity.my.local.MyMusicDanQu1;
 import com.skyun.music.activity.net.Geshou;
+import com.skyun.music.mode.Data;
+import com.skyun.music.mode.Music;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static com.skyun.music.activity.Main.helper;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MyMusic extends Fragment {
-
+    List<Music> download = new ArrayList<>();
     View inflate;
     public static Handler handler;
+    ;;
     int ids1[] = {R.id.music_tuijian3_im1, R.id.music_tuijian3_src1, R.id.music_tuijian3_num};
+    private List<String> getDataBase = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,9 +51,13 @@ public class MyMusic extends Fragment {
         inflate = inflater.inflate(R.layout.fragment_my_music, container, false);
 
 
+       updateRecent();
+        updateDonload();
+
+
         setItem(R.id.fragment_my_music_itme_local, R.drawable.ic_menu_camera, "本地歌曲", Music.MusicUtil.getAllMusic(getContext()), LocalMusic.class);
-        setItem(R.id.fragment_my_music_itme_dowload, R.drawable.ic_menu_gallery, "下载歌曲",  Music.MusicUtil.getMusicInfo(Data.APP_FILE_PATH,getContext()), DowloadMusic.class);
-        setItem(R.id.fragment_my_music_itme_recent, R.drawable.ic_menu_manage, "最近播放",Music.MusicUtil.getAllMusic(getContext()), RecentMusic.class);
+        setItem(R.id.fragment_my_music_itme_dowload, R.drawable.ic_menu_gallery, "下载歌曲", download, DowloadMusic.class);
+        setItem(R.id.fragment_my_music_itme_recent, R.drawable.ic_menu_manage, "最近播放",download , MyMusicDanQu1.class);
         setItem(R.id.fragment_my_music_itme_like, R.drawable.ic_menu_send, "我喜欢", Music.MusicUtil.getAllMusic(getContext()), LikeMusic.class);
         setItem(R.id.fragment_my_music_itme_mv, R.drawable.ic_menu_share, "下载MV", Music.MusicUtil.getAllMusic(getContext()), MVMusic.class);
         setItem(R.id.fragment_my_music_itme_buy, R.drawable.ic_menu_slideshow, "以购音乐", Music.MusicUtil.getAllMusic(getContext()), BuyMusic.class);
@@ -63,14 +72,28 @@ public class MyMusic extends Fragment {
             @Override
             public boolean handleMessage(Message msg) {
 
-                List<Map<String, Object>> new1 = (List<Map<String, Object>>) msg.obj;
+                switch (msg.what) {
+
+                    case 1:
+                        List<Map<String, Object>> new1 = (List<Map<String, Object>>) msg.obj;
 
 
-                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, new1.get(0), ids1);
-                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, new1.get(1), ids1);
-                setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3, new1.get(2), ids1);
+                        setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot1, new1.get(0), ids1);
+                        setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot2, new1.get(1), ids1);
+                        setHot(R.id.fragment_my_music_tuijian, R.id.music_tuijian3_hot3, new1.get(2), ids1);
+
+                        break;
 
 
+                    case 2:
+                        updateRecent();
+                        break;
+
+                    case 3:
+                        updateDonload();
+                        break;
+
+                }
                 return false;
             }
         });
@@ -78,7 +101,49 @@ public class MyMusic extends Fragment {
 
         return inflate;
     }
-//动态设置本地mp3标题图片
+
+
+    public void updateRecent() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getDataBase = helper.getAll();
+                final List<Music> allMusicByFile = Music.MusicUtil.getAllMusicByFile(getDataBase);
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        setItem(R.id.fragment_my_music_itme_recent, R.drawable.ic_menu_manage, "最近播放", allMusicByFile, MyMusicDanQu1.class);
+
+                    }
+                });
+            }
+        }).start();
+        ;
+    }
+
+    public void updateDonload() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                download = Music.MusicUtil.getMusicInfo(Data.APP_FILE_PATH, getContext());
+
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        setItem(R.id.fragment_my_music_itme_dowload, R.drawable.ic_menu_gallery, "下载歌曲", download, DowloadMusic.class);
+
+                    }
+                });
+            }
+        }).start();
+        ;
+    }
+
+
+
+    //动态设置本地mp3标题图片
 
     public void setItem(int itme_layout, int nIcon, String nName, final List<Music> music, final Class activity) {
         LinearLayout layout = (LinearLayout) inflate.findViewById(itme_layout);
@@ -101,7 +166,7 @@ public class MyMusic extends Fragment {
 
     }
 
-    public void setHot(int itme_layout, int itme_layout2, Map<String, Object>new1,int ids[]) {
+    public void setHot(int itme_layout, int itme_layout2, Map<String, Object> new1, int ids[]) {
         LinearLayout layout1 = (LinearLayout) inflate.findViewById(itme_layout);
         RelativeLayout layout = (RelativeLayout) layout1.findViewById(itme_layout2);
 

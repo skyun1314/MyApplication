@@ -3,12 +3,9 @@ package com.skyun.music.util.wyyapi;
 import android.graphics.Bitmap;
 import android.os.Message;
 
-import com.skyun.music.activity.FindMusic;
-import com.skyun.music.mode.Data;
+import com.hehe.WYYAPI;
 import com.skyun.music.activity.MyMusic;
 import com.skyun.music.activity.NetMusic;
-import com.skyun.music.util.bdapi.BMA;
-import com.hehe.WYYAPI;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,14 +26,6 @@ public class MyClass {
         List<Map<String, Object>> banner = (List<Map<String, Object>>) instans.get(3);
 
 
-        String s1 = BMA.Radio.recommendRadioList(10);
-        Data.showMyLog("recommendRadioList:"+s1);
-
-        String s2 = BMA.Billboard.billCategory();
-        Data.showMyLog("billCategory:"+s2);
-
-        String s = BMA.focusPic(10);
-        Data.showMyLog("bdmusic:"+s);
 
         reSetMap(hotTuiJian);
         reSetMap(newDieSHangJia);
@@ -48,20 +37,19 @@ public class MyClass {
         mymap.put("hot",hotTuiJian);
         mymap.put("new",newDieSHangJia);
         mymap.put("banner",banner);
+        mymap.put("bangDan",bangDan);
 
 
         Message message = NetMusic.handler.obtainMessage();
         message.obj= mymap;
+        message.what=1;
         message.sendToTarget();
 
 
         Message message1 = MyMusic.handler.obtainMessage();
         message1.obj= newDieSHangJia;
+        message1.what=1;
         message1.sendToTarget();
-
-        Message message2 = FindMusic.handler.obtainMessage();
-        message2.obj= bangDan;
-        message2.sendToTarget();
 
     }
 

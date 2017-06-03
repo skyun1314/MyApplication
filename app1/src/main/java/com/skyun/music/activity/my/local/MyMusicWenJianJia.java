@@ -66,7 +66,7 @@ public class MyMusicWenJianJia extends Fragment {
                     List<Music> id =
                             Music.MusicUtil.getMusicInfo(name,mycontext);
                     Intent intent = new Intent(getActivity(), MyMusicDanQu1.class);
-                    intent.putExtra("listMap", (Serializable) id);
+                    intent.putExtra(MyMusicDanQu1.class.getName(), (Serializable) id);
                     startActivity(intent);
 
                 }

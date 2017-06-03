@@ -28,7 +28,6 @@ public class WYYAPI {
       // discover.getMusicByKeyWord(MyAES.getWhat.getMusicByid,"479979010");
      //  discover.getMusicByKeyWord(MyAES.getWhat.getMusicByKeyWord,"479979010");
 
-
     }
 
 
@@ -36,10 +35,10 @@ public class WYYAPI {
     // 封装一个多参数的输出函数
     private static void print(String msg, Object... args) {
         System.out.println(String.format(msg, args));
-
-
-
     }
+
+
+
 
     /*
       这里打印出来的是

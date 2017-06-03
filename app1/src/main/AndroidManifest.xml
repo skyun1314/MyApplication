@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.skyun.music.activity.SplashActivity">
+        <activity android:name="com.skyun.music.activity.SplashActivity"   android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,10 +49,6 @@
             android:label="MVMusic"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.skyun.music.activity.my.RecentMusic"
-            android:label="RecentMusic"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.skyun.music.activity.net.FengLei"
             android:label="FengLei"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -78,9 +74,23 @@
             android:label="ShuZi"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.skyun.music.activity.BaseActivity" />
-        <activity android:name="com.skyun.music.activity.MusicPlayActivity"
+        <activity
+            android:name="com.skyun.music.activity.MusicPlayActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name="com.skyun.music.activity.FindMusicFour"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name="com.skyun.music.receiver.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.skyun.music.activity.FindMusicTow" />
+        <activity android:name="com.skyun.music.activity.FindMusicTree"></activity>
     </application>
 
 </manifest>

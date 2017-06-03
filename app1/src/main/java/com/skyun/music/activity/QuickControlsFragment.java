@@ -25,7 +25,7 @@ import java.util.List;
 import static com.skyun.music.mode.Music.MusicUtil.mPlayer;
 
 
-public class QuickControlsFragment extends Fragment implements View.OnClickListener {
+public  class QuickControlsFragment extends Fragment implements View.OnClickListener {
 
     private static QuickControlsFragment fragment;
     private ImageView play;
@@ -101,19 +101,27 @@ public class QuickControlsFragment extends Fragment implements View.OnClickListe
     }
 
 
-    public class QuickControlsFragmentAdapter extends LoopPagerAdapter implements ViewPager.OnPageChangeListener {
-
+    public static class QuickControlsFragmentAdapter extends LoopPagerAdapter implements ViewPager.OnPageChangeListener {
+        static  QuickControlsFragmentAdapter adapter;
         List<Music> musics = Music.MusicUtil.theWholeMusic;
 
         Activity Myactivity;
         RollPagerView viewPager;
 
-        public QuickControlsFragmentAdapter(RollPagerView viewPager, Activity activity) {
+        private QuickControlsFragmentAdapter(RollPagerView viewPager, Activity activity) {
             super(viewPager);
             Myactivity = activity;
             this.viewPager = viewPager;
             viewPager.getViewPager().addOnPageChangeListener(this);
         }
+
+        public static QuickControlsFragmentAdapter getInstans(RollPagerView viewPager, Activity activity){
+            if (adapter==null){
+                adapter=new QuickControlsFragmentAdapter(viewPager,activity);
+            }
+            return adapter;
+        }
+
 
         @Override
         public View getView(ViewGroup container, final int position) {
@@ -177,6 +185,8 @@ public class QuickControlsFragment extends Fragment implements View.OnClickListe
         @Override
         public void onPageScrollStateChanged(int state) {
         }
+
+
     }
 
 }

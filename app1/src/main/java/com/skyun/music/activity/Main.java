@@ -2,6 +2,7 @@ package com.skyun.music.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -13,25 +14,31 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.zk.activity.R;
 import com.skyun.music.adapter.TabLayoutViewPagerAdapter;
+import com.skyun.music.dao.RestaurantHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+public static Context mContext;
+    public static RestaurantHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        mContext=this;
         systemInit();
         viewPagerInit();
         verifyStoragePermissions(this);
+        helper = new RestaurantHelper(this);
     }
 
     public void viewPagerInit(){
@@ -41,8 +48,8 @@ public class Main extends BaseActivity
         //页面，数据源
         List<Fragment> list = new ArrayList<>();
         list.add(new MyMusic());
-        list.add(new NetMusic());
-        list.add(new FindMusic(quickcontrolsfragment1));
+        list.add(new NetMusic(quickcontrolsfragment1));
+        list.add(new FindMusic());
         String[] mTitles = new String[]{"我的", "音乐馆", "发现"};
 
         viewPager.setOffscreenPageLimit(2);
@@ -157,7 +164,28 @@ public class Main extends BaseActivity
 
 
 
+    //退出时的时间
+    private long mExitTime;
+    //对返回键进行监听
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            exit();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void exit() {
+        if ((System.currentTimeMillis() - mExitTime) > 2000) {
+            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+            mExitTime = System.currentTimeMillis();
+        } else {
+            finish();
+        }
+    }
 
 
 }
